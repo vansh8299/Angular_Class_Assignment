@@ -18,6 +18,8 @@
       <h2><figcaption>Courses at reasonable price</figcaption></h2>
     </figure>
     <h2><p>Here you can gain knowledge with experts support</p></h2>
+       <label for="Personal">Personal Details: </label>
+       <fieldset>
         <label for="first">FirstName: </label>
         <input type="text" name="fname" id="first" /><br />
         <br />
@@ -30,7 +32,22 @@
         <label for="pass">Password: </label>
         <input type="password" name="passw" id="pass" /><br />
         <br />
+        <h4><label for="position">Position: </label></h4>
+        <input type="radio" name="" id="position" >Student</input>
+        <input type="radio" name="" id="position" >Employee</input>
 
+        <h4><label for="dob">Date Of Birth: </label></h4>
+        <input type="date" name="dob" id="dob"><br>
+        <br>
+
+        <label for="resume">Resume: </label>
+        <input type="file" name="resume" id="resume"><br>
+        </fieldset><br>
+        <br>
+        <br>
+    
+        <fieldset>
+        <legend>Courses Details</legend>
         <label for="course">Courses of your choice: </label>
         <input list="data" name="lang" id="course" />
         <datalist id="data">
@@ -52,17 +69,11 @@
           </optgroup>
         </select><br />
         <br />
-
-        <h4><label for="position">Position: </label></h4>
-        <input type="radio" name="" id="position" >Student</input>
-        <input type="radio" name="" id="position" >Employee</input>
-
-        <h4><label for="dob">Date Of Birth: </label></h4>
-        <input type="date" name="dob" id="dob"><br>
+        </fieldset><br>
         <br>
 
-        <label for="resume">Resume: </label>
-        <input type="file" name="resume" id="resume"><br>
+
+        
         <br>
         <label for="feedback">Any Suggestions: </label>
         <textarea name="feedback" id="feedback" cols="30" rows="10"></textarea><br>
