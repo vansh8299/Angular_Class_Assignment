@@ -1,0 +1,46 @@
+.container {
+  border: 1px solid black;
+  height: 200px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: aqua;
+  justify-content: space-between;
+  align-items: stretch;
+}
+.box1 {
+  width: 50px;
+
+  border: 1px solid black;
+  background-color: yellow;
+  margin: 4;
+  flex-grow: 2;
+}
+
+.box2 {
+  width: 50px;
+
+  border: 1px solid black;
+  background-color: yellow;
+  margin: 4;
+  flex-grow: 6;
+}
+
+.box3 {
+  width: 50px;
+
+  border: 1px solid black;
+  background-color: yellow;
+  margin: 4;
+  flex-grow: 2;
+}
+
+header {
+  width: 100%;
+  background-color: blueviolet;
+}
+
+footer {
+  width: 100%;
+  background-color: blue;
+}
