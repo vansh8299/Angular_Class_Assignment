@@ -1,0 +1,95 @@
+.Image {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: auto;
+
+  grid-auto-flow: dense;
+  gap: 8px;
+}
+
+.Container1 {
+  border: 2px solid black;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.Container2 {
+  border: 2px solid black;
+  grid-column: span 2 / auto;
+  grid-row: span 2 / auto;
+}
+.Container3 {
+  border: 2px solid black;
+  grid-column: span 3 / auto;
+  grid-row: span 3 / auto;
+}
+.Container4 {
+  border: 2px solid black;
+  grid-column: span 4 / auto;
+  grid-row: span 4 / auto;
+}
+.Container1:hover {
+  border: 4px solid blueviolet;
+  box-shadow: 0px 0px 12px 4px black;
+  cursor: pointer;
+}
+.Container2:hover {
+  border: 4px solid blueviolet;
+  box-shadow: 0px 0px 12px 4px black;
+  cursor: pointer;
+}
+.Container3:hover {
+  border: 4px solid blueviolet;
+  box-shadow: 0px 0px 12px 4px black;
+  cursor: pointer;
+}
+.Container4:hover {
+  border: 4px solid blueviolet;
+  box-shadow: 0px 0px 12px 4px black;
+  cursor: pointer;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+body {
+  background-image: url(Photos/background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+header {
+  background-color: bisque;
+  border: 1px solid black;
+  width: 100%;
+  height: 100px;
+  position: fixed;
+  top: 0;
+}
+footer {
+  background-color: rgb(14, 117, 39);
+  border: 1px solid black;
+  width: 100%;
+  height: 70px;
+  position: fixed;
+  bottom: 0;
+}
+@media screen and (max-width: 700px) {
+  .Container {
+    width: 45%;
+  }
+}
+@media screen and (max-width: 400px) {
+  .Container {
+    width: 100%;
+  }
+}
+
+.text {
+  font-size: x-large;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  text-align: center;
+  color: antiquewhite;
+}
