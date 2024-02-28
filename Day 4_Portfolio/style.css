@@ -112,3 +112,6 @@ body {
 .About a:hover {
   text-shadow: 0px 0px 12px 4px purple;
 }
+.skill1 {
+  border: 2px solid purple;
+}
