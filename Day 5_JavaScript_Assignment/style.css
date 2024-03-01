@@ -1,0 +1,40 @@
+option {
+  font-weight: bold;
+}
+p {
+  font-size: x-large;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+}
+.Name {
+  text-align: center;
+}
+#Image {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  height: 400px;
+  width: 100%;
+
+  justify-content: space-around;
+  padding: 15px;
+}
+#Image img {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  height: 400px;
+  justify-content: space-around;
+  border: 8px solid black;
+  width: 40%;
+  margin-top: 8px;
+}
+#Image img:hover {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  height: 400px;
+  justify-content: space-around;
+  border: 8px solid purple;
+  width: 40%;
+}
