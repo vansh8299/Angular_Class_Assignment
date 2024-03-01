@@ -283,7 +283,6 @@ footer {
     width: 100%;
   }
   .Edu {
-    width: 100%;
     display: flex;
     flex-direction: column;
   }
@@ -307,5 +306,11 @@ footer {
     width: 50%;
     display: flex;
     flex-direction: column;
+  }
+  .school img {
+    display: none;
+  }
+  .Edu h3 {
+    width: 600px;
   }
 }
