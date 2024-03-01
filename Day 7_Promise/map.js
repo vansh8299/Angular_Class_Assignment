@@ -22,7 +22,7 @@ function sum(data) {
   console.log(data);
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      let s = data.reduce((a, i) => a + i);
+      let s = data.reduce((a, i) => a + i, 0);
       resolve(s);
     }, 2000);
   });
