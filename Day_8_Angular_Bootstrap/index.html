@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body style="background-color: wheat">
+    <nav
+      id="navbar-example2"
+      class="navbar fixed-top bg-body-tertiary px-3 mb-3"
+      data-bs-theme="dark"
+    >
+      <a class="navbar-brand" href="#">Portfolio</a>
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a class="nav-link" href="#scrollspyHeading1">Experience</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#scrollspyHeading2">Education</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#scrollspyHeading3">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#scrollspyHeading4">Contact</a>
+        </li>
+      </ul>
+    </nav>
+    <div
+      class="card mb-3"
+      style="margin-top: 60px; background-color: cadetblue"
+    >
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img
+            style="height: 350px; width: 350px"
+            src="Image/Image 24.jpg"
+            class="img-fluid rounded-start"
+            alt="..."
+          />
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title" style="font-weight: bold">MySelf</h5>
+            <p class="card-text" style="font-weight: bold">
+              My name is Vansh Misra. I am currently pursuing my B.Tech from
+              Galgotias University. My specilisation is in MERN Stack and in
+              Java. I have four projects based on Mern Stack in which two are
+              major and two are minor.
+            </p>
+            <p class="card-text">
+              <small class="text-body-secondary">Last updated 3 mins ago</small>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      data-bs-spy="scroll"
+      data-bs-target="#navbar-example2"
+      data-bs-root-margin="0px 0px -40%"
+      data-bs-smooth-scroll="true"
+      class="scrollspy-example bg-body-tertiary p-3 rounded-2"
+      tabindex="0"
+      data-bs-theme="dark"
+    >
+      <div
+        class="container-xxl"
+        style="
+          background-color: aqua;
+          border-radius: 8px;
+          display: flex;
+
+          flex-wrap: wrap;
+          justify-content: space-around;
+          padding: 15px;
+        "
+        id="scrollspyHeading1"
+      >
+        <div class="card" style="width: 22rem; margin: 6px">
+          <img
+            src="Image/internship_certificate (1)_page-0001.jpg"
+            class="card-img-top"
+            alt="..."
+          />
+          <div class="card-body">
+            <h5 class="card-title">Java Internship</h5>
+            <p class="card-text">
+              Application Development Internship by Suven Consultant Pvt. Ltd.
+            </p>
+            <a
+              href="https://drive.google.com/file/d/10ZFywcDALateJPiRic5H0rnjgtNX-SGs/view?usp=sharing"
+              class="btn btn-primary"
+              >View Certification</a
+            >
+          </div>
+        </div>
+        <div class="card" style="width: 22rem; margin: 6px">
+          <img
+            src="Image/internship_certificate_page-0001.jpg"
+            class="card-img-top"
+            alt="..."
+          />
+          <div class="card-body">
+            <h5 class="card-title">Web Development</h5>
+            <p class="card-text">
+              Web Development Internship by Suven Consultant Pvt.Ltd
+            </p>
+            <a
+              href="https://drive.google.com/file/d/1Bj6FjgLAh9BJFx6P79pnA5CbpWZzZiGh/view?usp=sharing"
+              class="btn btn-primary"
+              >View Certification</a
+            >
+          </div>
+        </div>
+      </div>
+      <br />
+
+      <div
+        class="container-xxl"
+        style="
+          background-color: aqua;
+          border-radius: 8px;
+          display: flex;
+
+          flex-wrap: wrap;
+          justify-content: space-around;
+          padding: 15px;
+        "
+        id="scrollspyHeading2"
+      >
+        <div class="card" style="width: 28rem; margin: 6px">
+          <a href="https://www.lucknowpublicschoolsandcolleges.com/"
+            ><img src="Image/images.jpg" class="card-img-top" alt="..." />
+          </a>
+          <div class="card-body">
+            <p class="card-text">School: Lucknow Public School</p>
+            <p class="card-text">Board: ICSE</p>
+            <p class="card-text">Percentage: 82.4%</p>
+          </div>
+        </div>
+
+        <div class="card" style="width: 28rem; margin: 6px">
+          <a href="https://www.galgotiasuniversity.edu.in/"
+            ><img
+              style="height: 250px"
+              src="Image/download.jpg"
+              class="card-img-top"
+              alt="..."
+          /></a>
+          <div class="card-body">
+            <p class="card-text">College: Galgotias University</p>
+            <p class="card-text">Course: B.TEch</p>
+            <p class="card-text">CGPA: 8.6</p>
+          </div>
+        </div>
+      </div>
+      <div id="scrollspyHeading3">
+        <div id="carouselExampleCaptions" class="carousel slide">
+          <div class="carousel-indicators">
+            <button
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to="0"
+              class="active"
+              aria-current="true"
+              aria-label="Slide 1"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to="1"
+              aria-label="Slide 2"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to="2"
+              aria-label="Slide 3"
+            ></button>
+          </div>
+          <br />
+          <div
+            class="carousel-inner"
+            style="border-radius: 5px; margin: 6px; height: 500px"
+          >
+            <div class="carousel-item active">
+              <img
+                src="Image/Screenshot 2024-02-28 175406.png"
+                class="d-block w-100"
+                alt="..."
+              />
+              <div class="carousel-caption d-none d-md-block">
+                <a href="https://github.com/vansh8299/E-Commerce_Website"
+                  ><h5>Taste on way</h5></a
+                >
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img
+                src="Image/Screenshot 2024-02-28 174506.png"
+                class="d-block w-100"
+                alt="..."
+              />
+              <div class="carousel-caption d-none d-md-block">
+                <a href="https://github.com/vansh8299/CourseScope-Server"
+                  ><h5>CourseScope</h5></a
+                >
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img
+                src="Image/Screenshot 2024-02-28 173535.png"
+                class="d-block w-100"
+                alt="..."
+              />
+              <div class="carousel-caption d-none d-md-block">
+                <a href=""><h5>U_First_Message</h5></a>
+              </div>
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+      <footer
+        class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top"
+      >
+        <div class="col-md-4 d-flex align-items-center">
+          <a
+            href="/"
+            class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1"
+          >
+            <svg class="bi" width="30" height="24">
+              <use xlink:href="#bootstrap"></use>
+            </svg>
+          </a>
+          <span class="mb-3 mb-md-0 text-body-secondary"
+            >© 2024 Company, Inc</span
+          >
+        </div>
+
+        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+          <li class="ms-3">
+            <a class="text-body-secondary" href="#"
+              ><svg class="bi" width="24" height="24">
+                <use xlink:href="#twitter"></use></svg
+            ></a>
+          </li>
+          <li class="ms-3">
+            <a class="text-body-secondary" href="#"
+              ><svg class="bi" width="24" height="24">
+                <use xlink:href="#instagram"></use></svg
+            ></a>
+          </li>
+          <li class="ms-3">
+            <a class="text-body-secondary" href="#"
+              ><svg class="bi" width="24" height="24">
+                <use xlink:href="#facebook"></use></svg
+            ></a>
+          </li>
+        </ul>
+      </footer>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
