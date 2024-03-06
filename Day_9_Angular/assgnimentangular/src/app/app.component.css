@@ -1,0 +1,6 @@
+h3 {
+  color: blueviolet;
+}
+h3:hover {
+  color: blue;
+}

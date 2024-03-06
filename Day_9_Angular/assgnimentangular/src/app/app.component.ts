@@ -10,5 +10,5 @@ import { FavFoodComponent } from './fav-food/fav-food.component';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'assgnimentangular';
+  title = "My Favourite Food";
 }

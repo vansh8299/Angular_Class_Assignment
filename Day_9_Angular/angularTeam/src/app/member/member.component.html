@@ -2,7 +2,7 @@
 
 <ul>
   <li *ngFor="let member of members">
-    <button>
+    <button type="button" (click)="onSelect(member)">
       <span>
         {{ member.id }}
       </span>
@@ -12,3 +12,5 @@
     </button>
   </li>
 </ul>
+
+<app-member-detail [member]="selectedMember"></app-member-detail>

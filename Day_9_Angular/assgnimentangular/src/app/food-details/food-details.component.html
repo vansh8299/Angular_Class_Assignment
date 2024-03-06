@@ -1,0 +1,7 @@
+<div *ngIf="foodc">
+  <h3>{{ foodc.food }} Details</h3>
+  <p>rank: {{ foodc.rank }}</p>
+
+  <label for="food-name">Favourite Food</label>
+  <input id="food-name" [(ngModel)]="foodc.food" placeholder="foodc.food" />
+</div>

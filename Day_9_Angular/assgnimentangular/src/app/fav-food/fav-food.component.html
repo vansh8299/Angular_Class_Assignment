@@ -1,12 +1,16 @@
 <h2>Favourite Food</h2>
 
 <ul>
-  <li *ngFor="let f of food">
-    <span>
-      {{ f.rank }}
-    </span>
-    <span>
-      {{ f.food }}
-    </span>
+  <li *ngFor="let f of foodl">
+    <button type="button" (click)="onSelect(f)">
+      <span>
+        {{ f.rank }}
+      </span>
+      <span>
+        {{ f.food }}
+      </span>
+    </button>
   </li>
 </ul>
+
+<app-food-details [foodc]="selectedfood"></app-food-details>
