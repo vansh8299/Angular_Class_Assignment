@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { NgFor, NgIf } from '@angular/common';
 import { MEMBERS } from '../my-member';
 import { MemberDetailComponent } from '../member-detail/member-detail.component';
-
+import { MemberServiceService } from '../member-service.service';
 @Component({
   selector: 'app-member',
   standalone: true,
@@ -13,7 +13,17 @@ import { MemberDetailComponent } from '../member-detail/member-detail.component'
   styleUrl: './member.component.css',
 })
 export class MemberComponent {
-  members = MEMBERS;
+  members: Member[] = [];
+
+  constructor(private memberService: MemberServiceService) {}
+  ngOnInit(): void {
+    this.getMembers();
+  }
+  getMembers(): void {
+    this.memberService
+      .getMembers()
+      .subscribe((members) => (this.members = members));
+  }
 
   selectedMember?: Member;
   onSelect(member: Member): void {
