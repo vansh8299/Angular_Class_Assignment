@@ -4,7 +4,7 @@ import { NgFor } from '@angular/common';
 import { food } from './favInterface';
 import { FoodDetailsComponent } from '../food-details/food-details.component';
 import { FoodserviceService } from '../foodservice.service';
-
+import { MessagefoodserviceService } from '../messagefoodservice.service';
 @Component({
   selector: 'app-fav-food',
   standalone: true,
@@ -14,7 +14,10 @@ import { FoodserviceService } from '../foodservice.service';
 })
 export class FavFoodComponent {
   foodl: food[] = [];
-  constructor(private foodService: FoodserviceService) {}
+  constructor(
+    private foodService: FoodserviceService,
+    private messagefoodService: MessagefoodserviceService
+  ) {}
 
   ngOnInit(): void {
     this.getFod();
@@ -27,5 +30,6 @@ export class FavFoodComponent {
   selectedfood?: food;
   onSelect(f: food): void {
     this.selectedfood = f;
+    this.messagefoodService.add(`Selected Food= ${f.rank}`);
   }
 }

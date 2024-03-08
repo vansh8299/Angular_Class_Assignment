@@ -1,0 +1,9 @@
+<div *ngIf="messagefoodservice.messagesfood.length">
+  <h2>Food Order:</h2>
+  <button type="button" (click)="messagefoodservice.clear()">
+    Clear Messages
+  </button>
+  <div *ngFor="let foodmessage of messagefoodservice.messagesfood">
+    {{ foodmessage }}
+  </div>
+</div>

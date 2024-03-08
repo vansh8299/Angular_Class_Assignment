@@ -5,6 +5,7 @@ import { NgFor, NgIf } from '@angular/common';
 import { MEMBERS } from '../my-member';
 import { MemberDetailComponent } from '../member-detail/member-detail.component';
 import { MemberServiceService } from '../member-service.service';
+import { MessageService } from '../message.service';
 @Component({
   selector: 'app-member',
   standalone: true,
@@ -15,7 +16,10 @@ import { MemberServiceService } from '../member-service.service';
 export class MemberComponent {
   members: Member[] = [];
 
-  constructor(private memberService: MemberServiceService) {}
+  constructor(
+    private memberService: MemberServiceService,
+    private messageService: MessageService
+  ) {}
   ngOnInit(): void {
     this.getMembers();
   }
@@ -28,5 +32,6 @@ export class MemberComponent {
   selectedMember?: Member;
   onSelect(member: Member): void {
     this.selectedMember = member;
+    this.messageService.add(`Selected member: ${member.id}`);
   }
 }
