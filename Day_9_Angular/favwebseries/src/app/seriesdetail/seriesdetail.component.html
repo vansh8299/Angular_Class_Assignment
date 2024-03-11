@@ -1,0 +1,22 @@
+<div *ngIf="particularseries">
+  <h2 style="font-family: 'Courier New', Courier, monospace; font-weight: bold">
+    Name Of Series: {{ particularseries.name | uppercase }}
+  </h2>
+  <div
+    style="font-family: 'Courier New', Courier, monospace; font-weight: bold"
+  >
+    Rank: {{ particularseries.rank }}
+  </div>
+  <div>
+    <label
+      style="font-family: 'Courier New', Courier, monospace; font-weight: bold"
+      for="particularseries-platformname"
+      >Platform Name:
+    </label>
+    <input
+      id="particularseries-platformname"
+      [(ngModel)]="particularseries.platform"
+      placeholder="particularseries.platform"
+    />
+  </div>
+</div>

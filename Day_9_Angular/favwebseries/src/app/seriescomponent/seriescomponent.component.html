@@ -1,0 +1,35 @@
+<ul>
+  <li *ngFor="let i of series">
+    <button type="button" (click)="onSelect(i)">
+      <span
+        style="
+          color: blueviolet;
+          font-weight: bold;
+          font-family: 'Courier New', Courier, monospace;
+        "
+      >
+        {{ i.rank }}
+      </span>
+      <span
+        style="
+          color: blueviolet;
+          font-weight: bold;
+          font-family: 'Courier New', Courier, monospace;
+        "
+      >
+        {{ i.name }}
+      </span>
+      <span
+        style="
+          color: blueviolet;
+          font-weight: bold;
+          font-family: 'Courier New', Courier, monospace;
+        "
+      >
+        {{ i.platform }}
+      </span>
+    </button>
+  </li>
+</ul>
+
+<app-seriesdetail [particularseries]="selectwebseries"></app-seriesdetail>

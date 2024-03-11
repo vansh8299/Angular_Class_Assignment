@@ -1,0 +1,7 @@
+<div *ngIf="descriptionService.descriptions.length">
+  <button type="button" (click)="descriptionService.clear()">
+    Clear Messages
+  </button>
+
+  <div *ngFor="let desc of descriptionService.descriptions">{{ desc }}</div>
+</div>
