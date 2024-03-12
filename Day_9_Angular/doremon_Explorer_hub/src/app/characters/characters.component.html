@@ -1,0 +1,5 @@
+<h3>Characters</h3>
+
+<div *ngFor="let c of chars" routerLink="/character/{{ c.name }}">
+  <span>Name: {{ c.name }}</span>
+</div>

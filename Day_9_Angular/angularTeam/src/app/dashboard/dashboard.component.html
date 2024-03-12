@@ -1,3 +1,5 @@
 <h2>Top Members</h2>
 
-<div *ngFor="let m of members">{{ m.name }}</div>
+<div>
+  <a *ngFor="let m of members" routerLink="/detail/{{ m.id }}">{{ m.name }}</a>
+</div>

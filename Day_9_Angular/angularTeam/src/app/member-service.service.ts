@@ -15,4 +15,10 @@ export class MemberServiceService {
     this.messageServices.add('MemberService: Members got fetched.....');
     return members;
   }
+
+  getMember(id: number): Observable<Member> {
+    const member = MEMBERS.find((member) => member.id === id)!;
+    this.messageServices.add(`MemberService: fetched Member id = ${id}....`);
+    return of(member);
+  }
 }

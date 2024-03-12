@@ -5,10 +5,11 @@ import { food } from './favInterface';
 import { FoodDetailsComponent } from '../food-details/food-details.component';
 import { FoodserviceService } from '../foodservice.service';
 import { MessagefoodserviceService } from '../messagefoodservice.service';
+import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-fav-food',
   standalone: true,
-  imports: [NgFor, FoodDetailsComponent],
+  imports: [NgFor, FoodDetailsComponent, RouterModule],
   templateUrl: './fav-food.component.html',
   styleUrl: './fav-food.component.css',
 })

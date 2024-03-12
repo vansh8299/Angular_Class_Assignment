@@ -6,10 +6,11 @@ import { MEMBERS } from '../my-member';
 import { MemberDetailComponent } from '../member-detail/member-detail.component';
 import { MemberServiceService } from '../member-service.service';
 import { MessageService } from '../message.service';
+import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-member',
   standalone: true,
-  imports: [FormsModule, NgFor, NgIf, MemberDetailComponent],
+  imports: [FormsModule, NgFor, NgIf, MemberDetailComponent, RouterModule],
   templateUrl: './member.component.html',
   styleUrl: './member.component.css',
 })

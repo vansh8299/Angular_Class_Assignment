@@ -1,3 +1,7 @@
 <h2>Favourite Foods</h2>
 
-<div *ngFor="let foo of favfoods">{{ foo.food }}</div>
+<div>
+  <a *ngFor="let foo of favfoods" routerLink="/detail/{{ foo.rank }}">{{
+    foo.food
+  }}</a>
+</div>

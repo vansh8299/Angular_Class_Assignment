@@ -2,15 +2,13 @@
 
 <ul>
   <li *ngFor="let member of members">
-    <button type="button" (click)="onSelect(member)">
+    <a routerLink="/detail/{{ member.id }}">
       <span>
         {{ member.id }}
       </span>
       <span>
         {{ member.name }}
       </span>
-    </button>
+    </a>
   </li>
 </ul>
-
-<app-member-detail [member]="selectedMember"></app-member-detail>

@@ -1,0 +1,7 @@
+<h2>Gadgets</h2>
+
+<div *ngFor="let g of gads" routerLink="/gadget/{{ g.gadid }}">
+  <span>{{ g.name }}</span>
+  <span>{{ g.gadid }}</span>
+  <span>{{ g.description }}</span>
+</div>

@@ -15,4 +15,9 @@ export class FoodserviceService {
     this.messagefoodservice.add('Food Selected.....');
     return FOODS;
   }
+  getOneFood(rank: number): Observable<food> {
+    const foodvar = foods.find((f) => f.rank === rank)!;
+    this.messagefoodservice.add(`Selected Food= ${foodvar.food}`);
+    return of(foodvar);
+  }
 }

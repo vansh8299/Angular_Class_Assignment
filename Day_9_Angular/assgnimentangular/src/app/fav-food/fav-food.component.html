@@ -2,15 +2,13 @@
 
 <ul>
   <li *ngFor="let f of foodl">
-    <button type="button" (click)="onSelect(f)">
+    <a routerLink="/detail/{{ f.rank }}">
       <span>
         {{ f.rank }}
       </span>
       <span>
         {{ f.food }}
       </span>
-    </button>
+    </a>
   </li>
 </ul>
-
-<app-food-details [foodc]="selectedfood"></app-food-details>
