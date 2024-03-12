@@ -1,1 +1,4 @@
-<p>gallery works!</p>
+<button type="button" (click)="getBack()">Back</button>
+<div *ngFor="let img of images">
+  <img src="{{ img?.imageUrl }}" alt="" />
+</div>
