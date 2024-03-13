@@ -1,6 +1,23 @@
-<h2>Characters</h2>
+<h2
+  style="
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    color: black;
+  "
+>
+  Characters
+</h2>
 
-<div *ngFor="let c of chars" routerLink="/character/{{ c.charid }}">
-  <span>{{ c.charid }}</span>
+<div
+  style="
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    color: blueviolet;
+    cursor: pointer;
+  "
+  *ngFor="let c of chars"
+  routerLink="/character/{{ c.charid }}"
+>
+  <span>{{ c.charid }} </span>
   <span>{{ c.name }}</span>
 </div>
