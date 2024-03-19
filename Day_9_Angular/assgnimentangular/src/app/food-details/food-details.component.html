@@ -1,9 +1,11 @@
 <div *ngIf="foodc">
   <h3>{{ foodc.food }} Details</h3>
   <p>rank: {{ foodc.rank }}</p>
+  <!-- <div>
+    <label for="food-name">Favourite Food</label>
+    <input id="food-name" [(ngModel)]="foodc.food" placeholder="foodc.food" />
+  </div> -->
 
-  <label for="food-name">Favourite Food</label>
-  <input id="food-name" [(ngModel)]="foodc.food" placeholder="foodc.food" />
+  <button type="button" (click)="goBack()">Back</button>
+  <button type="button" (click)="save()">Save</button>
 </div>
-
-<button type="button" (click)="goBack()">Back</button>

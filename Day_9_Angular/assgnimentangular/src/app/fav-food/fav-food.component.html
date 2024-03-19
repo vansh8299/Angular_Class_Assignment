@@ -10,5 +10,14 @@
         {{ f.food }}
       </span>
     </a>
+    <button type="button" (click)="delete(f)">Delete</button>
   </li>
 </ul>
+
+<div>
+  <label for="new-food">Food Name: </label>
+  <input id="new-food" #foodName />
+  <button type="button" (click)="add(foodName.value); foodName.value = ''">
+    Add
+  </button>
+</div>

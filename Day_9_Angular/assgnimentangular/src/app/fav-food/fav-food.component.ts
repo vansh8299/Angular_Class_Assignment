@@ -33,4 +33,18 @@ export class FavFoodComponent {
     this.selectedfood = f;
     this.messagefoodService.add(`Selected Food= ${f.rank}`);
   }
+
+  add(food: string): void {
+    food = food.trim();
+    if (!food) {
+      return;
+    }
+    this.foodService
+      .addFood({ food } as food)
+      .subscribe((foo) => this.foodl.push(foo));
+  }
+  delete(food: food): void {
+    this.foodl = this.foodl.filter((f) => f != food);
+    this.foodService.deletefood(food.rank).subscribe();
+  }
 }

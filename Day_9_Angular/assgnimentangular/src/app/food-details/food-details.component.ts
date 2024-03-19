@@ -28,10 +28,18 @@ export class FoodDetailsComponent {
   }
   getFood(): void {
     const rank = Number(this.route.snapshot.paramMap.get('rank'));
+    console.log(rank);
     this.foodservice.getOneFood(rank).subscribe((f) => (this.foodc = f));
+    console.log(this.foodc);
   }
 
   goBack(): void {
     this.location.back();
+  }
+
+  save(): void {
+    if (this.foodc) {
+      this.foodservice.updateFood(this.foodc).subscribe(() => this.goBack());
+    }
   }
 }
