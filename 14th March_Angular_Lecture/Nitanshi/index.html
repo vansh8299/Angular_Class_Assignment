@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Nitanshi's Task</title>
+  </head>
+  <body>
+    <header>
+      <h1>Angular Members</h1>
+      <nav>
+        <ul>
+          <li><a href="#table">Detailed Table</a></li>
+          <li><a href="#userform">Registration form</a></li>
+        </ul>
+      </nav>
+    </header>
+    <table>
+      <thead>
+        <tr>
+          <th>Team</th>
+          <th>Name & Image</th>
+          <th>Details</th>
+          <th>Links</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td rowspan="7">ANGULAR TEAM</td>
+          <td>Ankit<img src="IMages/Image 2.jpeg" alt="Ankit's Picture" /></td>
+          <td>
+            <ul>
+              <li>Doubtful Person</li>
+              <li>Nice Nature</li>
+              <li>Sarcastic</li>
+            </ul>
+          </td>
+          <td>
+            <a href="https://github.com/Akki0706">GITHUB</a><br />
+            <a href="https://www.linkedin.com/in/ankit-661901211">LINKEDIN</a>
+          </td>
+        </tr>
+        <tr>
+          <td>Disha<img src="IMages/Image 12.jpeg" alt="Disha's Picture" /></td>
+          <td>
+            <ul>
+              <li>Doremon</li>
+              <li>Always ready to help</li>
+              <li>Nice person</li>
+            </ul>
+          </td>
+          <td>
+            <a href="https://github.com/DishaSachdeva-02">GITHUB</a><br />
+            <a href="https://www.linkedin.com/in/disha-sachdeva-740122249"
+              >LINKEDIN</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td>Vansh<img src="IMages/Image 24.jpg" alt="Vansh's Picture" /></td>
+          <td>
+            <ul>
+              <li>Always try to explore modern techs</li>
+              <li>Never Cheat anyone</li>
+              <li>Want to become a full stack developer</li>
+            </ul>
+          </td>
+          <td>
+            <a href="https://github.com/vansh8299">GITHUB</a><br />
+            LINKEDIN
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Nitanshi<img src="IMages/Image 8.jpeg" alt="Nitanshi's Picture" />
+          </td>
+          <td>
+            <ul>
+              <li>Good Person</li>
+              <li>Black Magic Girl</li>
+              <li>Nobita</li>
+            </ul>
+          </td>
+          <td>
+            <a href="https://github.com/Nitanshi1">GITHUB</a><br />
+            <a href="https://www.linkedin.com/in/nitanshi-agarwal-023989221"
+              >LINKEDIN</a
+            >
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <form>
+      <fieldset id="userform" style="margin-bottom: 50px">
+        <legend>User Registration Form</legend>
+        <div>
+          <label for="name">Full Name:</label><br />
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Enter your name.."
+          />
+        </div>
+        <div>
+          <label for="email">Email id:</label><br />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your mail.."
+          />
+        </div>
+        <br />
+        <div>
+          <label for="enquiry">Details of members:</label>
+          <select id="enquiry" name="enquiry">
+            <option value="Ankit">Ankit</option>
+            <option value="Disha">Disha</option>
+            <option value="Vansh">Vansh</option>
+            <option value="Nitanshi">Nitanshi</option>
+          </select>
+        </div>
+        <br />
+        <div>
+          <label for="feedback">Feedback:</label>
+          <textarea
+            id="feedback"
+            name="feedback"
+            placeholder="Write us something.."
+          ></textarea>
+        </div>
+        <br />
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+      </fieldset>
+    </form>
+    <footer>
+      <p>All rights reserved.</p>
+    </footer>
+  </body>
+</html>

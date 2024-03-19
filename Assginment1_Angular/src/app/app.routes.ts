@@ -13,4 +13,5 @@ export const routes: Routes = [
   { path: 'Gadgets', component: GadgetComponent },
   { path: 'character/:charid', component: CharacterDetailComponent },
   { path: 'gadget/:gadid', component: GadgetDetailComponent },
+  { path: '', redirectTo: 'gallery', pathMatch: 'full' },
 ];
