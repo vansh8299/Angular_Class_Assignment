@@ -1,0 +1,10 @@
+<div>
+  <label for="search">Member Search: </label>
+  <input #searchBox id="search" (input)="search(searchBox.value)" />
+
+  <ul>
+    <li *ngFor="let member of members$ | async">
+      <a routerLink="/detail/{{ member.id }}">{{ member.name }}</a>
+    </li>
+  </ul>
+</div>
