@@ -1,0 +1,12 @@
+<h2>Categories</h2>
+
+<ul>
+  <li *ngFor="let n of news">
+    <a routerLink="/news">
+      <div>
+        <span>Category: {{ n.category }}</span
+        ><br /><br />
+      </div>
+    </a>
+  </li>
+</ul>

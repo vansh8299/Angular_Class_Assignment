@@ -1,0 +1,10 @@
+<div>
+  <label for="search">News Search: </label>
+  <input #searchBox id="search" (input)="search(searchBox.value)" />
+
+  <ul>
+    <li *ngFor="let n of news$ | async">
+      <a routerLink="/detail/{{ n.id }}">{{ n.title }}</a>
+    </li>
+  </ul>
+</div>

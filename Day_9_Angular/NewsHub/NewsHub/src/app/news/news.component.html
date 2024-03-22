@@ -1,0 +1,26 @@
+<h2>News</h2>
+<app-newssearch></app-newssearch>
+<div>
+  <label for="add">Add News: </label>
+  <input id="add" #addNews />
+
+  <button type="button" (click)="add(addNews.value); addNews.value = ''">
+    Add News
+  </button>
+</div>
+<ul>
+  <li *ngFor="let n of news">
+    <a routerLink="/detail/{{ n.id }}">
+      <div>
+        <span>id: {{ n.id }} </span><br />
+        <span>Title: {{ n.title }}</span
+        ><br />
+        <br />
+      </div>
+    </a>
+
+    <button type="button" (click)="delete(n)">Delete</button>
+    <br />
+    <br />
+  </li>
+</ul>

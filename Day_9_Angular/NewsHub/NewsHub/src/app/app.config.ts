@@ -4,18 +4,18 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { provideHttpClient } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InmemoryserviceService } from './inmemoryservice.service';
+
+import { NewsdataserviceService } from './newsdataservice.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideHttpClient(),
 
     importProvidersFrom(
-      HttpClientInMemoryWebApiModule.forRoot(InmemoryserviceService, {
+      HttpClientInMemoryWebApiModule.forRoot(NewsdataserviceService, {
         dataEncapsulation: false,
       })
     ),
-
     provideRouter(routes),
   ],
 };

@@ -1,0 +1,28 @@
+<h2>Todos</h2>
+<div>
+  <label for="tasks">new Task: </label>
+  <input id="tasks" placeholder="Enter a task" #newtask />
+  <button type="button" (click)="add(newtask.value); newtask.value = ''">
+    Add Task
+  </button>
+</div>
+<ul>
+  <li *ngFor="let todo of todos" [class.completed]="todo.isCompleted">
+    <span>{{ todo.id }} - </span>
+    <br />
+    <span>Task - {{ todo.task }}</span>
+    <input type="checkbox" [(ngModel)]="todo.isCompleted" />
+    <span [ngClass]="{ isCompleted: todo.isCompleted }"></span>
+    <div>
+      <label for="tasks">Edit Task: </label>
+      <input
+        id="tasks"
+        [(ngModel)]="todo.task"
+        placeholder="task"
+        #updatetask
+      />
+      <button type="button" (click)="delete(todo)">Delete</button>
+      <button type="button" (click)="edit(todo)">Edit</button>
+    </div>
+  </li>
+</ul>
