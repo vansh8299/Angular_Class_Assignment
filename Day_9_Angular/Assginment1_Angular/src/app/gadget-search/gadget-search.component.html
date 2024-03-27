@@ -1,0 +1,10 @@
+<div>
+  <label for="search">Gadget Search: </label>
+  <input #searchBox id="search" (input)="search(searchBox.value)" />
+
+  <ul>
+    <li *ngFor="let gadget of gadgets$ | async">
+      <a routerLink="/gadget/{{ gadget.id }}">{{ gadget.name }}</a>
+    </li>
+  </ul>
+</div>

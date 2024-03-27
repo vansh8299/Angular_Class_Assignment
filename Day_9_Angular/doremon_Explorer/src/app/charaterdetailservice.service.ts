@@ -8,9 +8,4 @@ import { chardetailarr } from './character-detail/chardetailarr';
 })
 export class CharaterdetailserviceService {
   constructor() {}
-  getChardetail(id1: number): Observable<chardetailInter> {
-    const chardetail = chardetailarr.find((char) => char.charid === id1)!;
-
-    return of(chardetail);
-  }
 }

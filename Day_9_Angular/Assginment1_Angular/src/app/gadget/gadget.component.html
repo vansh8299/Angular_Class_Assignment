@@ -1,0 +1,38 @@
+<h2 style="font-family: 'Courier New', Courier, monospace; font-weight: bold">
+  Gadgets
+</h2>
+
+<app-gadget-search></app-gadget-search>
+
+<div
+  style="
+    color: blueviolet;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    cursor: pointer;
+  "
+  *ngFor="let g of gads"
+  routerLink="/gadget/{{ g.id }}"
+>
+  <span>{{ g.id }} </span>
+  <span>Name: {{ g.name }}</span
+  ><br />
+
+  <button type="button" (click)="deletegad(g)">Delete</button>
+</div>
+
+<div>
+  <label for="new-gad">Gadget Name: </label>
+  <input id="new-gad" #gadName />
+  <label for="new-color">Gadget color: </label>
+  <input id="new-color" #color />
+
+  <button
+    type="button"
+    (click)="
+      addgad(gadName.value, color.value); gadName.value = ''; color.value = ''
+    "
+  >
+    Add Gadget
+  </button>
+</div>

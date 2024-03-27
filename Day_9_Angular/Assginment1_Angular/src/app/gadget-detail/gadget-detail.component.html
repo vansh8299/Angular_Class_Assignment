@@ -1,0 +1,22 @@
+<h2 style="font-family: 'Courier New', Courier, monospace; font-weight: bold">
+  Gadget Detail
+</h2>
+<div *ngIf="gaddetails">
+  <div style="color: blueviolet">
+    <span>{{ gaddetails.id }}</span
+    ><br />
+    <span>Name: {{ gaddetails.name }}</span
+    ><br />
+    <span>Color: {{ gaddetails.color }}</span
+    ><br />
+
+    <div>
+      <label>Update: </label>
+      <input type="text" [(ngModel)]="gaddetails.name" />
+      <input type="text" [(ngModel)]="gaddetails.color" />
+      <button type="button" (click)="save()">Save</button>
+    </div>
+
+    <button type="button" (click)="getBack()">Back</button>
+  </div>
+</div>

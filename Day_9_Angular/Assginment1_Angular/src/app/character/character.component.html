@@ -1,0 +1,49 @@
+<h2
+  style="
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    color: black;
+  "
+>
+  Characters
+</h2>
+
+<app-search></app-search>
+
+<div
+  style="
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    color: blueviolet;
+    cursor: pointer;
+  "
+  *ngFor="let c of chars"
+  routerLink="/character/{{ c.id }}"
+>
+  <span>{{ c.id }} </span>
+  <span>{{ c.name }}</span
+  ><br />
+
+  <button type="button" (click)="delete(c)">Delete</button>
+</div>
+
+<div>
+  <label for="new-char">Character Name: </label>
+  <input id="new-char" #charName />
+  <label for="new-height">Character Height: </label>
+  <input id="new-height" #height />
+  <label for="new-weight">Character Weight: </label>
+  <input id="new-weight" #weight />
+
+  <button
+    type="button"
+    (click)="
+      add(charName.value, height.value, weight.value);
+      charName.value = '';
+      height.value = '';
+      weight.value = ''
+    "
+  >
+    Add Character
+  </button>
+</div>
