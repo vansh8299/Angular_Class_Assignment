@@ -20,12 +20,26 @@ export class AppComponent {
     'Routing and Naving',
   ];
 
+  taskHasError = true;
+
   clientModel = new client(
-    'Vansh',
+    '',
     'vansh@gmail.com',
-    88899556622,
+    78945618233,
     '',
     'weekdays',
     true
   );
+
+  validateTask(value: string) {
+    if (value === 'default') {
+      this.taskHasError = true;
+    } else {
+      this.taskHasError = false;
+    }
+  }
+
+  onSubmit() {
+    console.log(this.clientModel);
+  }
 }

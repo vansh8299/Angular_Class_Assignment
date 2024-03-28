@@ -2,18 +2,24 @@
   <h1>Angular Team Requirement</h1>
 </div>
 
-<form #clientForm="ngForm">
+<form #clientForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
   {{ clientForm.value | json }}
   <hr />
   {{ clientModel | json }}
   <div class="form-group">
     <label>Name</label>
     <input
+      #name="ngModel"
+      required
       type="text"
+      [class.is-invalid]="name.invalid && name.touched"
       class="form-control"
       name="name"
       [(ngModel)]="clientModel.name"
     />
+    <small [class.d-none]="name.valid || name.untouched" class="text-danger"
+      >Name is Required</small
+    >
   </div>
 
   <div class="form-group">
@@ -29,17 +35,42 @@
   <div class="form-group">
     <label>Phone</label>
     <input
+      #phone="ngModel"
+      [class.is-invalid]="phone.invalid && phone.touched"
+      required
       type="tel"
       class="form-control"
+      pattern="^\d{10}$"
       name="phone"
       [(ngModel)]="clientModel.phone"
     />
+    <div *ngIf="phone.errors && phone.invalid && phone.touched">
+      <small class="text-danger" *ngIf="phone.errors['required']"
+        >Phone number is required</small
+      >
+      <small class="text-danger" *ngIf="phone.errors['pattern']"
+        >Phone number must be of 10 digits</small
+      >
+    </div>
   </div>
+
   <div class="form-group">
-    <select class="custom-select" name="task" [(ngModel)]="clientModel.task">
-      <option value="">Required for the task:</option>
+    <select
+      (blur)="validateTask(task.value)"
+      (change)="validateTask(task.value)"
+      required
+      #task="ngModel"
+      [class.is-invalid]="taskHasError && task.touched"
+      class="custom-select"
+      name="task"
+      [(ngModel)]="clientModel.task"
+    >
+      <option value="default">Required for the task :</option>
       <option *ngFor="let task of tasks">{{ task }}</option>
     </select>
+    <small class="text-danger" [class.d-none]="!taskHasError || task.untouched">
+      Task is Required</small
+    >
   </div>
 
   <div>
@@ -76,5 +107,11 @@
     <label class="form-check-label">Notify Me when Member Available</label>
   </div>
 
-  <button class="btn-btn-primary" type="submit">Submit</button>
+  <button
+    [disabled]="clientForm.form.invalid || taskHasError"
+    class="btn btn-primary"
+    type="submit"
+  >
+    Submit
+  </button>
 </form>
