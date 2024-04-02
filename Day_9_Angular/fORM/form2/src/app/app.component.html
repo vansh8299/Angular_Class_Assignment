@@ -1,0 +1,117 @@
+<div class="container-fluid">
+  <h2>Angular Team Registration</h2>
+
+  <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    {{ registrationForm.value | json }}
+
+    <div class="form-group">
+      <label>UserName: </label>
+      <input
+        [class.is-invalid]="userName?.invalid && userName?.touched"
+        formControlName="userName"
+        type="text"
+        class="form-control"
+      />
+
+      <div *ngIf="userName?.invalid && userName?.touched">
+        <small class="text-danger" *ngIf="userName?.errors?.['required']"
+          >Please enter the username</small
+        >
+        <small class="text-danger" *ngIf="userName?.errors?.['minlength']"
+          >Username is of 3 or more characters</small
+        >
+        <small class="text-danger" *ngIf="userName?.errors?.['forbiddenName']"
+          >Not allowed</small
+        >
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Password: </label>
+      <input formControlName="password" type="password" class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label>Confirm Password: </label>
+      <input
+        [class.is-invalid]="registrationForm.errors?.['misMatch']"
+        formControlName="confirmPassword"
+        type="password"
+        class="form-control"
+      />
+      <small class="text-danger" *ngIf="registrationForm.errors?.['misMatch']"
+        >Not matching with the Password</small
+      >
+    </div>
+
+    <div class="form-group">
+      <label>Email</label>
+      <button
+        type="button"
+        class="btn btn-secondary btn-sm m-2"
+        (click)="addEmailFieldfunction()"
+      >
+        Add Alternate Emails
+      </button>
+      <input
+        formControlName="email"
+        [class.is-invalid]="
+          registrationForm.controls['email'].invalid &&
+          registrationForm.controls['email'].touched
+        "
+        type="email"
+        class="form-control"
+      />
+      <small
+        class="text-danger"
+        [class.d-none]="
+          registrationForm.controls['email'].valid ||
+          registrationForm.controls['email'].untouched
+        "
+        >Email is Required</small
+      >
+
+      <div
+        formArrayName="addEmailField"
+        *ngFor="let email of addEmailField.controls; let i = index"
+      >
+        <input type="text" class="form-control my-1" [formControlName]="i" />
+      </div>
+    </div>
+
+    <div formGroupName="skill">
+      <div class="form-group">
+        <label>Angular Experience</label>
+        <input
+          formControlName="angularLevel"
+          type="text"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label>Github Link: </label>
+        <input formControlName="githubLink" type="text" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label>Portfolio Website Link: </label>
+        <input
+          formControlName="portfolioLink"
+          type="text"
+          class="form-control"
+        />
+      </div>
+    </div>
+
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        formControlName="notify"
+        type="checkbox"
+      />
+      <label class="form-check-label">Notify Me</label>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Register</button>
+    <button type="button" (click)="load()">Load Data</button>
+  </form>
+</div>

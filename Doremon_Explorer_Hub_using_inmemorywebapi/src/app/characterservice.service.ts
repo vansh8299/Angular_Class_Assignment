@@ -54,8 +54,8 @@ export class CharacterserviceService {
     return this.http
       .post<chardetailInter>(this.characterUrl, char, this.httpOptions)
       .pipe(
-        tap((newMember: chardetailInter) =>
-          this.log(`added character with id=${newMember.id}`)
+        tap((newchar: chardetailInter) =>
+          this.log(`added character with id=${newchar.id}`)
         ),
         catchError(this.handleError<chardetailInter>('addMember'))
       );
