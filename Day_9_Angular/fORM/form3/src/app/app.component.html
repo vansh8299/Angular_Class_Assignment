@@ -5,7 +5,24 @@
     {{ regform.value | json }}
     <div class="form-group">
       <label>Name: </label>
-      <input type="text" formControlName="userName" class="form-control" />
+      <input
+        [class.is-invalid]="userName?.invalid && userName?.touched"
+        type="text"
+        formControlName="userName"
+        class="form-control"
+      />
+
+      <div *ngIf="userName?.invalid && userName?.touched">
+        <small class="text-danger" *ngIf="userName?.errors?.['required']"
+          >Enter UserName</small
+        >
+        <small class="text-danger" *ngIf="userName?.errors?.['minlength']"
+          >Username has at least 3 characters</small
+        >
+        <small class="text-danger" *ngIf="userName?.errors?.['NotAllowed']"
+          >Not Allowed</small
+        >
+      </div>
     </div>
 
     <div class="form-group">
@@ -15,14 +32,42 @@
     <div class="form-group">
       <label>Confirm Password: </label>
       <input
+        [class.is-invalid]="regform.errors?.['misMatch']"
         type="password"
         formControlName="confirmPassword"
         class="form-control"
       />
+      <small class="text-danger" *ngIf="regform.errors?.['misMatch']"
+        >Not matching</small
+      >
     </div>
     <div class="form-group">
       <label>Email: </label>
-      <input type="email" formControlName="email" class="form-control" />
+      <input
+        type="email"
+        formControlName="email"
+        class="form-control"
+        [class.is-invalid]="email?.invalid && email?.touched"
+      />
+      <button
+        type="button"
+        class="btn btn-secondary"
+        (click)="addEmailfunction()"
+      >
+        Add Alternate Email
+      </button>
+      <small
+        class="text-danger"
+        [class.d-none]="email?.valid || email?.untouched"
+        >Enter Email</small
+      >
+
+      <div
+        formArrayName="addEmail"
+        *ngFor="let email of addEmail.controls; let i = index"
+      >
+        <input type="text" class="form-control my-1" [formControlName]="i" />
+      </div>
     </div>
 
     <div formGroupName="phone">
@@ -32,6 +77,16 @@
       </div>
     </div>
 
+    <div class="form-check">
+      <input
+        type="checkbox"
+        formControlName="checked"
+        class="form-check-input"
+      />
+      <label class="form-check-label">Checked</label>
+    </div>
+
     <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="button" (click)="load()">Load Data</button>
   </form>
 </div>
