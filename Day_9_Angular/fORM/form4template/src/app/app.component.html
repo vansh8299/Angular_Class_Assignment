@@ -59,10 +59,25 @@
     <input
       type="text"
       class="form-control"
+      [class.is-invalid]="address.invalid && address.touched"
+      required
+      minlength="5"
       #address="ngModel"
       name="address"
       [(ngModel)]="clientModel.address"
     />
+    <small
+      *ngIf="address.errors?.['minlength'] && address.touched"
+      class="text-danger"
+    >
+      Address must be at least 5 characters long.
+    </small>
+
+    <small
+      class="text-danger"
+      [class.d-none]="address.valid || address.untouched"
+      >Address is required</small
+    >
   </div>
 
   <div class="form-group">
