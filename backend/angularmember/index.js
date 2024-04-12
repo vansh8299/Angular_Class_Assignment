@@ -92,7 +92,7 @@ app.post("/register", (req, res) => {
 
       return res
         .status(200)
-        .json({ message: "User successfullt Register......" });
+        .json({ message: "User successfull Register......" });
     } else {
       return res.status(404).json({ message: "User already Exists...." });
     }
