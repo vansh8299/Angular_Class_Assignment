@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create New User</title>
+  </head>
+  <body>
+    <div>
+      <h1>Create a User</h1>
+
+      <form action="/users/<%= user.id%>?_method=PUT" method="post">
+        <div>
+          <label for="name">Name: </label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            value="<%= user.name%>"
+            required
+          />
+        </div>
+        <div>
+          <label for="email">Email: </label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            value="<%= user.email%>"
+            required
+          />
+        </div>
+        <div>
+          <label for="age">Age: </label>
+          <input
+            type="number"
+            name="age"
+            id="age"
+            value="<%= user.age%>"
+            required
+          />
+        </div>
+
+        <button type="submit">Edit User</button>
+      </form>
+
+      <%if(errors){%>
+      <div>
+        <h3>Errors:</h3>
+        <ul>
+          <% errors.forEach(error=>{%>
+          <li><%= error.msg%></li>
+          <%})%>
+        </ul>
+      </div>
+      <% }%>
+    </div>
+  </body>
+</html>

@@ -4,7 +4,7 @@
 
   <ul>
     <li *ngFor="let member of members$ | async">
-      <a routerLink="/detail/{{ member.id }}">{{ member.name }}</a>
+      <a routerLink="/detail/{{ member.member_id }}">{{ member.name }}</a>
     </li>
   </ul>
 </div>

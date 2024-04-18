@@ -1,35 +1,36 @@
 import { Injectable } from '@angular/core';
-import { Member } from './member/member';
-import { MEMBERS } from './my-member';
-import { Observable, of } from 'rxjs';
-import { MessageService } from './message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError, map, tap } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
+import { Member } from './member/member';
+import { MessageService } from './message.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MemberServiceService {
-  private membersURL = 'api/members';
-
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-type': 'application/json' }),
+  private membersURL = 'http://localhost:3000/member';
+  private httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
+
   constructor(
     private http: HttpClient,
-    private messageServices: MessageService
+    private messageService: MessageService
   ) {}
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-      console.log(error);
+      console.error(error);
+      this.log(`${operation} failed: ${error.message}`);
       return of(result as T);
     };
   }
 
   private log(message: string) {
-    this.messageServices.add(`MemberService: ${message}`);
+    this.messageService.add(`MemberService: ${message}`);
   }
+
   getMembers(): Observable<Member[]> {
     return this.http.get<Member[]>(this.membersURL).pipe(
       tap((_) => this.log('fetched Members')),
@@ -41,13 +42,14 @@ export class MemberServiceService {
     const url = `${this.membersURL}/${id}`;
     return this.http.get<Member>(url).pipe(
       tap((_) => this.log(`fetched member id=${id}`)),
-      catchError(this.handleError<Member>('getMember id=${id}'))
+      catchError(this.handleError<Member>(`getMember id=${id}`))
     );
   }
 
   updateMember(member: Member): Observable<any> {
-    return this.http.put(this.membersURL, member, this.httpOptions).pipe(
-      tap((_) => this.log('Updated member id=${member.id}')),
+    const url = `${this.membersURL}/${member.member_id}`;
+    return this.http.put(url, member, this.httpOptions).pipe(
+      tap((_) => this.log(`updated member id=${member.member_id}`)),
       catchError(this.handleError<any>('updateMember'))
     );
   }
@@ -57,7 +59,7 @@ export class MemberServiceService {
       .post<Member>(this.membersURL, member, this.httpOptions)
       .pipe(
         tap((newMember: Member) =>
-          this.log(`added member with id=${newMember.id}`)
+          this.log(`added member with id=${newMember.member_id}`)
         ),
         catchError(this.handleError<Member>('addMember'))
       );
@@ -66,22 +68,20 @@ export class MemberServiceService {
   deleteMember(id: number): Observable<Member> {
     const url = `${this.membersURL}/${id}`;
     return this.http.delete<Member>(url, this.httpOptions).pipe(
-      tap((_) => this.log(`Deleted Member id=${id}`)),
+      tap((_) => this.log(`deleted member id=${id}`)),
       catchError(this.handleError<Member>('deleteMember'))
     );
   }
 
-  searchMembers(word: string): Observable<Member[]> {
-    if (!word.trim()) {
+  searchMembers(term: string): Observable<Member[]> {
+    if (!term.trim()) {
       return of([]);
     }
-    return this.http.get<Member[]>(`${this.membersURL}/?name=${word}`).pipe(
-      tap((x) =>
-        x.length
-          ? this.log(`Found members matching ${word}`)
-          : this.log(`No members matching ${word}`)
-      ),
-      catchError(this.handleError<Member[]>('searchMembers', []))
-    );
+    return this.http
+      .get<Member[]>(`${this.membersURL}/search?term=${term}`)
+      .pipe(
+        tap((_) => this.log(`searching data for ${term}`)),
+        catchError(this.handleError<any>('searchdata', []))
+      );
   }
 }

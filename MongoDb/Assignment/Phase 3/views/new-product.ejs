@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Product</title>
+    <link rel="stylesheet" href="/new.css" />
+  </head>
+  <body>
+    <form action="/products" method="post" enctype="multipart/form-data">
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name" required /><br />
+
+      <label for="price">Price</label>
+      <input type="number" name="price" id="price" required /><br />
+
+      <label for="description">Description</label>
+      <input type="text" name="description" id="description" required /><br />
+
+      <label for="image">Image</label>
+      <input
+        type="file"
+        id="image"
+        name="image"
+        accept="image/*"
+        required
+      /><br />
+
+      <button type="submit">Submit</button>
+    </form>
+    <a href="/products">Back</a>
+    <% if (errors) { %>
+    <div class="error">
+      <h3>Error(s):</h3>
+      <ul>
+        <% errors.forEach(error => { %>
+        <li><%= error.msg %></li>
+        <% }) %>
+      </ul>
+    </div>
+    <% } %>
+  </body>
+</html>

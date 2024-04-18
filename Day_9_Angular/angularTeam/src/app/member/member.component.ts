@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Member } from './member';
 import { FormsModule } from '@angular/forms';
 import { NgFor, NgIf } from '@angular/common';
-import { MEMBERS } from '../my-member';
+
 import { MemberDetailComponent } from '../member-detail/member-detail.component';
 import { MemberServiceService } from '../member-service.service';
 import { MessageService } from '../message.service';
@@ -33,7 +33,7 @@ export class MemberComponent {
   selectedMember?: Member;
   onSelect(member: Member): void {
     this.selectedMember = member;
-    this.messageService.add(`Selected member: ${member.id}`);
+    this.messageService.add(`Selected member: ${member.member_id}`);
   }
 
   add(name: string): void {
@@ -48,6 +48,6 @@ export class MemberComponent {
 
   delete(member: Member): void {
     this.members = this.members.filter((m) => m != member);
-    this.memberService.deleteMember(member.id).subscribe();
+    this.memberService.deleteMember(member.member_id).subscribe();
   }
 }

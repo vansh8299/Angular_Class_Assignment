@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Submission</title>
+  </head>
+  <body>
+    <div>
+      <h1>Submitted Data</h1>
+      <p>Name: <%= name %></p>
+      <p>Price: <%= price %></p>
+      <p>Description: <%= description %></p>
+      <label
+        for="image"
+        style="
+          font-size: larger;
+          font-family: 'Courier New', Courier, monospace;
+          font-weight: bolder;
+        "
+        >Image:</label
+      >
+      <div style="display: flex; justify-content: center; align-items: center">
+        <img
+          src="/<%= imagePath %>"
+          alt="Product Image"
+          id="image"
+          style="max-width: 100%; max-height: 300px"
+        />
+      </div>
+    </div>
+  </body>
+</html>
