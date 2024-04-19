@@ -1,0 +1,10 @@
+<div>
+  <label for="search">Character Search: </label>
+  <input #searchBox id="search" (input)="search(searchBox.value)" />
+
+  <ul>
+    <li *ngFor="let character of members$ | async">
+      <a routerLink="/character/{{ character.id }}">{{ character.name }}</a>
+    </li>
+  </ul>
+</div>

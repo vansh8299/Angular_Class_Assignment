@@ -1,0 +1,24 @@
+<h2>My Team</h2>
+
+<ul>
+  <li *ngFor="let member of members">
+    <a routerLink="/detail/{{ member.member_id }}">
+      <span>
+        {{ member.member_id }}
+      </span>
+      <span>
+        {{ member.name }}
+      </span>
+    </a>
+    <button type="button" (click)="delete(member)">Delete</button>
+  </li>
+</ul>
+
+<div>
+  <label for="new-member">Member Name: </label>
+  <input id="new-member" #memberName />
+
+  <button type="button" (click)="add(memberName.value); memberName.value = ''">
+    Add Member
+  </button>
+</div>

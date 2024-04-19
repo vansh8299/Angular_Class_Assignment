@@ -1,0 +1,6 @@
+<button type="button" (click)="getBack()">Back</button>
+<div class="img">
+  <div *ngFor="let img of images">
+    <img src="{{ img?.imageUrl }}" alt="" />
+  </div>
+</div>
