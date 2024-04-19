@@ -1,5 +1,5 @@
 export interface gadgetdetailinter {
-  id: number;
+  gad_id: number;
   name: string;
   color: string;
 }

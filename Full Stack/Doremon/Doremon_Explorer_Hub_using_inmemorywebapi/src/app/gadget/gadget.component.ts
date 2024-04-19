@@ -36,6 +36,6 @@ export class GadgetComponent {
   }
   deletegad(gad: gadgetdetailinter): void {
     this.gads = this.gads.filter((m) => m != gad);
-    this.gadgetService.deleteGad(gad.id).subscribe();
+    this.gadgetService.deleteGad(gad.gad_id).subscribe();
   }
 }

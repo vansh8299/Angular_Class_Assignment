@@ -45,7 +45,8 @@ export class CharacterserviceService {
     );
   }
   updatecharacter(char: chardetailInter): Observable<any> {
-    return this.http.put(this.characterUrl, char, this.httpOptions).pipe(
+    const url = `${this.characterUrl}/${char.char_id}`;
+    return this.http.put(url, char, this.httpOptions).pipe(
       tap((_) => this.log('Updated Character')),
       catchError(this.handleError<chardetailInter>('updatechar character'))
     );
@@ -72,7 +73,7 @@ export class CharacterserviceService {
       return of([]);
     }
     return this.http
-      .get<chardetailInter[]>(`${this.characterUrl}/?name=${word}`)
+      .get<chardetailInter[]>(`${this.characterUrl}/search?name=${word}`)
       .pipe(
         tap((x) =>
           x.length

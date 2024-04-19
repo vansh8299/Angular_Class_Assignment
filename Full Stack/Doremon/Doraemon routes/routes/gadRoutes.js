@@ -12,6 +12,18 @@ router.get("/gadgets", async (req, res) => {
   }
 });
 
+router.get("/gadgets/search", async (req, res) => {
+  try {
+    const chars = await Gad.find({
+      name: { $regex: req.query.name, $options: "i" },
+    });
+
+    res.send(chars);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
 router.get("/gadgets/:gad_id", async (req, res) => {
   try {
     const gadget = await Gad.findOne({ gad_id: req.params.gad_id });

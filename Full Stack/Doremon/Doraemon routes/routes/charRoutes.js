@@ -11,6 +11,17 @@ router.get("/characters", async (req, res) => {
     res.status(500).send(err.message);
   }
 });
+router.get("/characters/search", async (req, res) => {
+  try {
+    const chars = await Char.find({
+      name: { $regex: req.query.name, $options: "i" },
+    });
+
+    res.send(chars);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
 
 router.get("/characters/:char_id", async (req, res) => {
   try {

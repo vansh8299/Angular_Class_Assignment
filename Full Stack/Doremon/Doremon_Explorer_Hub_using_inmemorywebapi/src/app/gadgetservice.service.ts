@@ -10,7 +10,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root',
 })
 export class GadgetserviceService {
-  private gadgetUrl = 'api/gadgets';
+  private gadgetUrl = 'http://localhost:4000/gadgets';
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
@@ -44,7 +44,8 @@ export class GadgetserviceService {
     );
   }
   updategadget(gadget: gadgetdetailinter): Observable<any> {
-    return this.http.put(this.gadgetUrl, gadget, this.httpOptions).pipe(
+    const url = `${this.gadgetUrl}/${gadget.gad_id}`;
+    return this.http.put(url, gadget, this.httpOptions).pipe(
       tap((_) => this.log('Updated Gadget')),
       catchError(this.handleError<gadgetdetailinter>('updategadget gadget'))
     );
@@ -55,7 +56,7 @@ export class GadgetserviceService {
       .post<gadgetdetailinter>(this.gadgetUrl, gad, this.httpOptions)
       .pipe(
         tap((newMember: gadgetdetailinter) =>
-          this.log(`added gadget with id=${newMember.id}`)
+          this.log(`added gadget with id=${newMember.gad_id}`)
         ),
         catchError(this.handleError<gadgetdetailinter>('addMember'))
       );
@@ -72,7 +73,7 @@ export class GadgetserviceService {
       return of([]);
     }
     return this.http
-      .get<gadgetdetailinter[]>(`${this.gadgetUrl}/?name=${word}`)
+      .get<gadgetdetailinter[]>(`${this.gadgetUrl}/search?name=${word}`)
       .pipe(
         tap((x) =>
           x.length
