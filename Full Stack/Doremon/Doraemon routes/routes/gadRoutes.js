@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const router = express.Router();
 const Gad = require("../models/gadmodels.js");
 
-router.get("/gadgets", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const gadget = await Gad.find();
     res.send(gadget);
@@ -12,7 +12,7 @@ router.get("/gadgets", async (req, res) => {
   }
 });
 
-router.get("/gadgets/search", async (req, res) => {
+router.get("/search", async (req, res) => {
   try {
     const chars = await Gad.find({
       name: { $regex: req.query.name, $options: "i" },
@@ -24,7 +24,7 @@ router.get("/gadgets/search", async (req, res) => {
   }
 });
 
-router.get("/gadgets/:gad_id", async (req, res) => {
+router.get("/:gad_id", async (req, res) => {
   try {
     const gadget = await Gad.findOne({ gad_id: req.params.gad_id });
     if (!gadget) {
@@ -36,7 +36,7 @@ router.get("/gadgets/:gad_id", async (req, res) => {
   }
 });
 
-router.post("/gadgets", async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     const newGadget = new Gad(req.body);
     const maxGadId = await Gad.findOne({}, {}, { sort: { gad_id: -1 } });
@@ -49,7 +49,7 @@ router.post("/gadgets", async (req, res) => {
   }
 });
 
-router.put("/gadgets/:gad_id", async (req, res) => {
+router.put("/:gad_id", async (req, res) => {
   try {
     const updatedGad = await Gad.findOneAndUpdate(
       { gad_id: req.params.gad_id },
@@ -65,7 +65,7 @@ router.put("/gadgets/:gad_id", async (req, res) => {
   }
 });
 
-router.delete("/gadgets/:gad_id", async (req, res) => {
+router.delete("/:gad_id", async (req, res) => {
   try {
     const deletedGad = await Gad.findOneAndDelete({
       gad_id: req.params.gad_id,

@@ -10,7 +10,18 @@ router.get("/", async (req, res) => {
     res.status(500).send(err);
   }
 });
+router.get("/search", async (req, res) => {
+  console.log(req.query.term);
+  try {
+    const members = await Mem.find({
+      name: { $regex: req.query.term, $options: "i" },
+    });
 
+    res.send(members);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
 router.get("/:member_id", async (req, res) => {
   try {
     const member = await Mem.findOne({ member_id: req.params.member_id });
@@ -18,18 +29,6 @@ router.get("/:member_id", async (req, res) => {
       return res.status(404).send("Member not found");
     }
     res.send(member);
-  } catch (err) {
-    res.status(500).send(err);
-  }
-});
-
-router.get("/search", async (req, res) => {
-  try {
-    const users = await Mem.find({
-      name: { $regex: req.query.term, $options: "i" },
-    });
-
-    res.send(users);
   } catch (err) {
     res.status(500).send(err);
   }

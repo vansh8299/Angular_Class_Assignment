@@ -77,6 +77,7 @@ export class MemberServiceService {
     if (!term.trim()) {
       return of([]);
     }
+    console.log(term);
     return this.http
       .get<Member[]>(`${this.membersURL}/search?term=${term}`)
       .pipe(
