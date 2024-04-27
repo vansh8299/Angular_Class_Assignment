@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat Applicatiion</title>
+  </head>
+  <body>
+    <div id="chat-container">
+      <ul id="messages"></ul>
+
+      <form id="form">
+        <input id="input" placeholder="Mesages...." required />
+        <button>Send</button>
+      </form>
+    </div>
+
+    <script>
+      let socket = io();
+
+      socket.on("user-joined", (data) => {
+        let item = document.createElement("li");
+
+        item.style.color = data.color;
+
+        item.textContent = `${data.username} joined the chat`;
+        document.getElementById("messages").appendChild(item);
+      });
+
+      socket.on("user left", (message) => {
+        let item = document.createElement("li");
+
+        item.style.color = red;
+
+        item.textContent = message;
+        document.getElementById("messages").appendChild(item);
+      });
+
+      socket.on("usernames", (username) => {});
+    </script>
+  </body>
+</html>
