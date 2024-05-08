@@ -16,18 +16,21 @@ const orderSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  status: {
+  status1: {
     type: String,
     required: true,
-    enum: [
-      "order placed",
-      "pending",
-      "confirmed",
-      "preparation",
-      "delivered",
-      "cancelled",
-    ],
+    enum: ["order placed", "cancelled"],
     default: "order placed",
+  },
+  status2: {
+    type: String,
+    required: true,
+    enum: ["pending", "confirmed", "preparation", "delivered"],
+    default: "pending",
+  },
+  timestamp: {
+    type: Number,
+    default: Date.now,
   },
 });
 

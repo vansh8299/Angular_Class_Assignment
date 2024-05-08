@@ -1,6 +1,7 @@
 const Order = require("../models/orderModel");
 const User = require("../models/userModel");
 const Item = require("../models/itemModel");
+const mongoose = require("mongoose");
 
 exports.getAllOrders = async (email) => {
   try {
@@ -15,51 +16,97 @@ exports.getAllOrders = async (email) => {
   }
 };
 
-exports.placeOrder = async (email, newField) => {
+exports.placeOrder = async (email, itemIds) => {
   try {
     const user = await User.findOne({ email });
     if (!user) {
       throw new Error("User not found");
     }
-    const itemId = newField.items[0];
 
-    const item = await Item.findById(itemId);
+    const extractedItemIds = Array.isArray(itemIds) ? itemIds : itemIds.items;
 
-    if (!item) {
-      throw new Error("Item not found");
+    const isValidItemIds = extractedItemIds.every((id) =>
+      mongoose.Types.ObjectId.isValid(id)
+    );
+    if (!isValidItemIds) {
+      throw new Error("Invalid item IDs");
     }
 
-    const existingOrder = await Order.findOne({ user: user._id });
-
-    if (!existingOrder) {
-      const newOrder = new Order({
-        user: user._id,
-        items: [itemId],
-        amount: item.price,
-        status: "order placed",
-      });
-      const savedOrder = await newOrder.save();
-      return savedOrder;
+    const items = await Item.find({ _id: { $in: extractedItemIds } });
+    if (!items || items.length === 0) {
+      throw new Error("Items not found");
     }
 
-    existingOrder.items.push(itemId);
-
-    let total = 0;
-    for (const itemId of existingOrder.items) {
-      const item = await Item.findById(itemId);
-      console.log(item);
-
+    let totalAmount = 0;
+    for (const itemId of extractedItemIds) {
+      const item = items.find((item) => item._id.toString() === itemId);
       if (!item) {
         throw new Error(`Item with ID ${itemId} not found`);
       }
-      total += item.price;
+      totalAmount += item.price;
     }
 
-    existingOrder.amount = total;
+    const order = new Order({
+      user: user._id,
+      items: extractedItemIds,
+      amount: totalAmount,
+      status1: "order placed",
+      status2: "pending",
+    });
 
-    const savedOrder = await existingOrder.save();
+    const savedOrder = await order.save();
+
     return savedOrder;
   } catch (error) {
     throw new Error(error.message);
+  }
+};
+
+exports.getMonthlyRevenue = async (month, year) => {
+  try {
+    const startDate = new Date(year, month - 1, 1);
+    const endDate = new Date(year, month, 0, 23, 59, 59);
+
+    const orders = await Order.find({
+      timestamp: {
+        $gte: startDate.getTime(),
+        $lte: endDate.getTime(),
+      },
+      status2: "delivered",
+    }).sort({ timestamp: 1 });
+
+    console.log(orders);
+
+    const totalRevenue = orders.reduce(
+      (total, order) => total + order.amount,
+      0
+    );
+
+    return totalRevenue;
+  } catch (error) {
+    throw new Error("Failed to calculate monthly revenue");
+  }
+};
+
+exports.updateOrderstatus = async (id, email, updatedFields) => {
+  try {
+    const user = await User.findOne({ email });
+    const order = await Order.findById(id);
+    currentUserRole = user.role;
+    if (currentUserRole !== "admin") {
+      if (order.status2 === "confirmed") {
+        throw new Error("Unauthorized status update for user.");
+      } else {
+        return await Order.findByIdAndUpdate(id, updatedFields, {
+          new: true,
+        });
+      }
+    } else {
+      return await Order.findByIdAndUpdate(id, updatedFields, {
+        new: true,
+      });
+    }
+  } catch (error) {
+    throw new Error("Failed to update user");
   }
 };

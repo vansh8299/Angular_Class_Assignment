@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { RouterOutlet } from '@angular/router';
-import { CommonModule } from '@angular/common';
+
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormBuilder, Validators } from '@angular/forms';
 import { NgIf } from '@angular/common';
@@ -12,14 +11,15 @@ import { throwError } from 'rxjs';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, ReactiveFormsModule, NgIf],
+  imports: [ReactiveFormsModule, NgIf],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
 export class AppComponent {
   registrationForm!: FormGroup;
-  showSuccessMessage: boolean = false;
-  showErrorMessage: boolean = false;
+  successmessage: boolean = false;
+  errormessage: boolean = false;
+  // Getter functions for form controls
   get firstName() {
     return this.registrationForm.get('firstName');
   }
@@ -39,41 +39,41 @@ export class AppComponent {
   constructor(private fb: FormBuilder, private http: HttpClient) {}
 
   ngOnInit() {
-    this.registrationForm = this.fb.group(
-      {
-        firstName: ['Vansh', [Validators.required]],
-        lastName: ['Misra', [Validators.required]],
-
-        email: ['', [Validators.required, Validators.email]],
-        password: ['', [Validators.required, Validators.minLength(6)]],
-      },
-      {}
-    );
+    // Initializing the registration form with form controls and validators
+    this.registrationForm = this.fb.group({
+      firstName: ['', [Validators.required]],
+      lastName: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+    });
   }
 
   onSubmit() {
+    // Check if the form is invalid
     if (this.registrationForm.invalid) {
       return;
     }
 
-    const formData = this.registrationForm.value;
+    const data = this.registrationForm.value;
 
-    // Mock API endpoint (replace with your actual endpoint)
-    const apiUrl = 'https://jsonplaceholder.typicode.com/posts';
+    const url = 'https://jsonplaceholder.typicode.com/posts';
 
+    // Sending form data to a server
     this.http
-      .post(apiUrl, formData)
+      .post(url, data)
       .pipe(
         catchError((error) => {
-          this.showSuccessMessage = false;
-          this.showErrorMessage = true;
+          // Handling error if the request fails
+          this.successmessage = false;
+          this.errormessage = true;
           return throwError(error);
         })
       )
-      .subscribe((response) => {
-        console.log('Response:', response);
-        this.showSuccessMessage = true;
-        this.showErrorMessage = false;
+      .subscribe((res) => {
+        // Handling success response
+        console.log('Response:', res);
+        this.successmessage = true;
+        this.errormessage = false;
       });
   }
 }

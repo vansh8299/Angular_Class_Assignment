@@ -32,7 +32,7 @@ const userRoutes = require("./routes/userRoutes");
 const itemRoutes = require("./routes/itemRoutes");
 const orderRoutes = require("./routes/orderRoutes");
 const { authenticate, authorize } = require("./Middleware/authMiddleware");
-app.use("/user", authenticate, authorize("admin"), userRoutes);
+app.use("/user", authenticate, userRoutes);
 app.use("/item", itemRoutes);
 app.use("/order", authenticate, orderRoutes);
 
