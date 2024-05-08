@@ -1,0 +1,21 @@
+const express = require("express");
+const router = express.Router();
+const hikeController = require("../Controller/hikecontroller");
+const reviewcontroller = require("../Controller/reviewController");
+router.get("/search", hikeController.locationsearch);
+router.get("/filter", hikeController.difficultsearch);
+router.get("/filter", hikeController.difficultsearch);
+router.get("/filter", hikeController.minlengthsearch);
+router.get("/filter", hikeController.maxlengthsearch);
+router.get("/filter", hikeController.minelevationsearch);
+router.get("/filter", hikeController.maxelevationsearch);
+router.get("/", hikeController.getTrails);
+router.get("/:id", hikeController.getTrailById);
+router.post("/", hikeController.createtrail);
+router.put("/:id", hikeController.updatetrail);
+router.delete("/:id", hikeController.deletetrail);
+router.post("/reviews", reviewcontroller.createreview);
+router.put("/:id/reviews/:reviewId", reviewcontroller.updatereview);
+router.delete("/:id/reviews/:reviewId", reviewcontroller.updatereview);
+
+module.exports = router;
