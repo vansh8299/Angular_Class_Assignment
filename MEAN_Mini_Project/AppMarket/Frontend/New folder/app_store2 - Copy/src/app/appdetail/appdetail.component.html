@@ -1,0 +1,56 @@
+<div class="container mt-5">
+  <h2>App Details</h2>
+
+  <div class="card">
+    <div class="card-body">
+      <p class="card-text">
+        <strong>User ID:</strong> {{ appdetail?.user_id }}
+      </p>
+      <p class="card-text">
+        <strong>App Name:</strong> {{ appdetail?.app_name }}
+      </p>
+      <p class="card-text">
+        <strong>Description:</strong> {{ appdetail?.description }}
+      </p>
+      <p class="card-text">
+        <strong>Release Date:</strong> {{ appdetail?.release_date }}
+      </p>
+      <p class="card-text">
+        <strong>Version:</strong> {{ appdetail?.version }}
+      </p>
+      <p class="card-text"><strong>Genre:</strong> {{ appdetail?.genre }}</p>
+      <p class="card-text">
+        <strong>Visibility:</strong> {{ appdetail?.visibility }}
+      </p>
+      <p class="card-text">
+        <strong>Average Rating:</strong>
+        <ngb-rating
+          [rate]="appdetail?.averageRating || 0"
+          [readonly]="true"
+        ></ngb-rating>
+      </p>
+
+      <button type="button" class="btn btn-primary" (click)="goback()">
+        Back</button
+      ><br />
+      <br />
+      <ng-container *ngIf="appdetail?.comments?.length">
+        <ngb-carousel>
+          <ng-template ngbSlide *ngFor="let comment of appdetail!.comments">
+            <div class="picsum-img-wrapper">
+              <img [src]="images[0]" alt="Comment slide" />
+            </div>
+            <div class="carousel-caption">
+              <h3>{{ comment.user_id }}</h3>
+              <p>{{ comment.statement }}</p>
+              <ngb-rating
+                [rate]="comment.rating"
+                [readonly]="true"
+              ></ngb-rating>
+            </div>
+          </ng-template>
+        </ngb-carousel>
+      </ng-container>
+    </div>
+  </div>
+</div>

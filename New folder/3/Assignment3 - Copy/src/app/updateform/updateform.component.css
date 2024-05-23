@@ -1,0 +1,101 @@
+/* Form Container Styling */
+.container-fluid {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Title Styling */
+h2 {
+  text-align: center;
+  color: #333;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+/* Form Group Styling */
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Label Styling */
+.form-group label {
+  font-weight: 600;
+  color: #555;
+}
+
+/* Input Styling */
+.form-control {
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+/* Input Focus and Invalid State Styling */
+.form-control:focus {
+  border-color: #007bff;
+  box-shadow: none;
+}
+
+.is-invalid {
+  border-color: #dc3545;
+}
+
+.is-invalid:focus {
+  border-color: #dc3545;
+  box-shadow: none;
+}
+
+/* Error Message Styling */
+.text-danger {
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Button Styling */
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  display: block;
+  width: 100%;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+.custom-toast {
+  background-color: #007bff; /* Bootstrap primary color */
+  color: white;
+  border: none;
+  border-radius: 0.25rem;
+  padding: 1rem;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 1050; /* Ensures it appears above other elements */
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  opacity: 0.95;
+}
+
+.custom-toast .ngb-toast-header {
+  color: white;
+  background-color: #0056b3; /* Darker shade of Bootstrap primary color */
+  border-bottom: none;
+  padding: 0.5rem 1rem;
+}
+
+.custom-toast .ngb-toast-body {
+  padding: 1rem;
+}

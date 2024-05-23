@@ -1,0 +1,109 @@
+<div class="container-fluid">
+  <h2 style="padding-bottom: 20px">Announcement Form</h2>
+
+  <form [formGroup]="createform">
+    <div class="form-group">
+      <label for="titlenew">Title: </label>
+      <textarea
+        [class.is-invalid]="
+          createform.get('title')?.invalid && createform.get('title')?.touched
+        "
+        formControlName="title"
+        id="titlenew"
+        #Atitle
+        class="form-control"
+        placeholder="Write something...."
+      ></textarea>
+      <div
+        *ngIf="
+          createform.get('title')?.invalid && createform.get('title')?.touched
+        "
+      >
+        <small
+          class="text-danger"
+          *ngIf="createform.get('title')?.errors?.['required']"
+          >Please enter the title</small
+        >
+        <small
+          class="text-danger"
+          *ngIf="createform.get('title')?.errors?.['minlength']"
+          >Title should be of 2 or more characters</small
+        >
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="datenew">Date</label>
+      <input
+        [class.is-invalid]="
+          createform.get('date')?.invalid && createform.get('date')?.touched
+        "
+        formControlName="date"
+        id="datenew"
+        readonly
+        #Adate
+        type="date"
+        class="form-control"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="contentnew">Content</label>
+      <input
+        [class.is-invalid]="
+          createform.get('content')?.invalid &&
+          createform.get('content')?.touched
+        "
+        formControlName="content"
+        id="contentnew"
+        #Acontent
+        type="text"
+        class="form-control"
+      />
+      <div
+        *ngIf="
+          createform.get('content')?.invalid &&
+          createform.get('content')?.touched
+        "
+      >
+        <small
+          class="text-danger"
+          *ngIf="createform.get('content')?.errors?.['required']"
+          >Please enter the content</small
+        >
+        <small
+          class="text-danger"
+          *ngIf="createform.get('content')?.errors?.['minlength']"
+          >Content should be of 7 or more characters</small
+        >
+      </div>
+    </div>
+    <br />
+
+    <br />
+    <button
+      type="button"
+      class="btn btn-primary"
+      [disabled]="!createform.valid"
+      (click)="
+        add(Atitle.value, Adate.value, Acontent.value);
+        Atitle.value = '';
+        Adate.value = '';
+        Acontent.value = ''
+      "
+    >
+      Add Announcement</button
+    ><br />
+    <button type="button" class="btn btn-secondary" (click)="goback()">
+      Back
+    </button>
+    <div>
+      <h6 class="mt-4"></h6>
+      @if (show) {
+      <ngb-toast class="custom-toast" (hidden)="show = false">
+        Announcement created successfully
+      </ngb-toast>
+      }
+    </div>
+  </form>
+</div>

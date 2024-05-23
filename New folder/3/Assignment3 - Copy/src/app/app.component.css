@@ -1,0 +1,12 @@
+/* styles.css */
+/* Navbar Link Styling */
+.navbar-nav .nav-link {
+  color: #555;
+  transition: color 0.3s ease;
+}
+
+/* Active Link Styling */
+.navbar-nav .nav-link.active {
+  color: #007bff;
+  font-weight: bold;
+}

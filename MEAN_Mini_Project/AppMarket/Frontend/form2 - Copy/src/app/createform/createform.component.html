@@ -1,0 +1,134 @@
+<div class="container-fluid">
+  <h2 style="padding-bottom: 20px">App Market Form</h2>
+
+  <form [formGroup]="applicationForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label>Application Name: </label>
+      <input
+        [class.is-invalid]="
+          applicationForm.get('AppName')?.invalid &&
+          applicationForm.get('AppName')?.touched
+        "
+        formControlName="AppName"
+        type="text"
+        class="form-control"
+      />
+      <div
+        *ngIf="
+          applicationForm.get('AppName')?.invalid &&
+          applicationForm.get('AppName')?.touched
+        "
+      >
+        <small
+          class="text-danger"
+          *ngIf="applicationForm.get('AppName')?.errors?.['required']"
+          >Please enter the appname</small
+        >
+        <small
+          class="text-danger"
+          *ngIf="applicationForm.get('AppName')?.errors?.['minlength']"
+          >Appname should be of 3 or more characters</small
+        >
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Description: </label>
+      <textarea
+        [class.is-invalid]="
+          applicationForm.get('description')?.invalid &&
+          applicationForm.get('description')?.touched
+        "
+        formControlName="description"
+        class="form-control"
+        placeholder="Wrtie something...."
+      ></textarea>
+      <div
+        *ngIf="
+          applicationForm.get('description')?.invalid &&
+          applicationForm.get('description')?.touched
+        "
+      >
+        <small
+          class="text-danger"
+          *ngIf="applicationForm.get('description')?.errors?.['required']"
+          >Please enter the description</small
+        >
+        <small
+          class="text-danger"
+          *ngIf="applicationForm.get('description')?.errors?.['minlength']"
+          >Description should be of 10 or more characters</small
+        >
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Release Date</label>
+      <input
+        [class.is-invalid]="
+          applicationForm.get('releasedate')?.invalid &&
+          applicationForm.get('releasedate')?.touched
+        "
+        formControlName="releasedate"
+        type="date"
+        class="form-control"
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Version</label>
+      <input
+        [class.is-invalid]="
+          applicationForm.get('version')?.invalid &&
+          applicationForm.get('version')?.touched
+        "
+        formControlName="version"
+        type="text"
+        class="form-control"
+      />
+    </div>
+    <br />
+
+    <div class="form-group">
+      <label for="genre">Genre</label>
+      <select
+        id="genre"
+        [class.is-invalid]="
+          applicationForm.get('genre')?.invalid &&
+          applicationForm.get('genre')?.touched
+        "
+        class="form-select"
+        aria-label="Default select example"
+        formControlName="genre"
+      >
+        <option value="" selected disabled>Choose Genre</option>
+        <!-- Modified line -->
+        <option value="1">Games</option>
+        <option value="2">Health</option>
+        <option value="3">Beauty</option>
+        <option value="4">Travel</option>
+      </select>
+    </div>
+
+    <br />
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="!applicationForm.valid"
+    >
+      Submit
+    </button>
+    <div>
+      <h6 class="mt-4"></h6>
+      @if (show) {
+      <ngb-toast
+        class="custom-toast"
+        [autohide]="false"
+        (hidden)="show = false"
+      >
+        Application created successfully
+      </ngb-toast>
+      }
+    </div>
+  </form>
+</div>

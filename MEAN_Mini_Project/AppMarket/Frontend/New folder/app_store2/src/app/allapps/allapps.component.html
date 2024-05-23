@@ -1,0 +1,36 @@
+<div class="container" style="padding: 20px">
+  <div class="row">
+    <div
+      class="col-sm-12 col-md-6 col-lg-4 mb-3"
+      *ngFor="let app of apps"
+      routerLink="/app/{{ app.id }}"
+    >
+      <div class="card text-white bg-dark h-100">
+        <img
+          src="{{ app.imageurl }}"
+          class="card-img-top img-fluid"
+          alt="App Image"
+          style="height: 200px; object-fit: cover"
+        />
+        <div class="card-body">
+          <h5 class="card-title text-warning">{{ app.app_name }}</h5>
+          <p class="card-text">
+            <strong>Average Rating: </strong>
+            <ngb-rating
+              [rate]="app.averageRating ?? 0"
+              [readonly]="true"
+            ></ngb-rating>
+          </p>
+          <p class="card-text">
+            <strong>Download Count:</strong>
+            <span class="text-info"> {{ app.downloadCount }}</span>
+          </p>
+          <p class="card-text">
+            <strong>Genre:</strong>
+            <span class="text-info"> {{ app.genre }}</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

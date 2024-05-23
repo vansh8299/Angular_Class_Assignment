@@ -1,0 +1,12 @@
+<div>
+  <label for="search">Search: </label>
+  <input #searchBox id="search" (input)="search(searchBox.value)" />
+
+  <ul>
+    <li *ngFor="let a of announcements$ | async">
+      <h6>{{ a.title }}</h6>
+      <p>{{ a.date }}</p>
+      <p>{{ a.content }}</p>
+    </li>
+  </ul>
+</div>

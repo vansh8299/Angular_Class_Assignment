@@ -1,0 +1,190 @@
+<div class="container-fluid">
+  <h2 style="padding-bottom: 20px">Edit Details Form</h2>
+
+  <form [formGroup]="updateForm" (ngSubmit)="save()">
+    <div class="form-group">
+      <label for="staticEmail">Application Name: </label>
+      <input
+        [class.is-invalid]="
+          updateForm.get('app_name')?.invalid &&
+          updateForm.get('app_name')?.touched
+        "
+        readonly
+        class="form-control-plaintext"
+        id="staticEmail"
+        formControlName="app_name"
+        type="text"
+        class="form-control"
+      />
+      <div
+        *ngIf="
+          updateForm.get('app_name')?.invalid &&
+          updateForm.get('app_name')?.touched
+        "
+      >
+        <small
+          class="text-danger"
+          *ngIf="updateForm.get('app_name')?.errors?.['required']"
+          >Please enter the app_name</small
+        >
+        <small
+          class="text-danger"
+          *ngIf="updateForm.get('app_name')?.errors?.['minlength']"
+          >app_name should be of 3 or more characters</small
+        >
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Description: </label>
+      <textarea
+        [class.is-invalid]="
+          updateForm.get('description')?.invalid &&
+          updateForm.get('description')?.touched
+        "
+        formControlName="description"
+        class="form-control"
+        placeholder="Write something...."
+      ></textarea>
+      <div
+        *ngIf="
+          updateForm.get('description')?.invalid &&
+          updateForm.get('description')?.touched
+        "
+      >
+        <small
+          class="text-danger"
+          *ngIf="updateForm.get('description')?.errors?.['required']"
+          >Please enter the description</small
+        >
+        <small
+          class="text-danger"
+          *ngIf="updateForm.get('description')?.errors?.['minlength']"
+          >Description should be of 10 or more characters</small
+        >
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="release_date">Release Date</label>
+      <input
+        [class.is-invalid]="
+          updateForm.get('release_date')?.invalid &&
+          updateForm.get('release_date')?.touched
+        "
+        readonly
+        class="form-control-plaintext"
+        id="release_date"
+        formControlName="release_date"
+        class="form-control"
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Version</label>
+      <input
+        [class.is-invalid]="
+          updateForm.get('version')?.invalid &&
+          updateForm.get('version')?.touched
+        "
+        formControlName="version"
+        type="text"
+        class="form-control"
+      />
+    </div>
+    <br />
+
+    <div class="form-group">
+      <label for="avg">Average Rating: </label>
+      <input
+        [class.is-invalid]="
+          updateForm.get('averageRating')?.invalid &&
+          updateForm.get('averageRating')?.touched
+        "
+        readonly
+        class="form-control-plaintext"
+        id="avg"
+        formControlName="averageRating"
+        type="text"
+        class="form-control"
+      />
+    </div>
+    <br />
+    <div class="form-group">
+      <label for="genre">Genre</label>
+      <select
+        id="genre"
+        [class.is-invalid]="
+          updateForm.get('genre')?.invalid && updateForm.get('genre')?.touched
+        "
+        class="form-select"
+        aria-label="Default select example"
+        formControlName="genre"
+      >
+        <option selected disabled>Genre</option>
+        <option value="Travel">Travel</option>
+        <option value="Games">Games</option>
+        <option value="Health">Health</option>
+        <option value="Beauty">Beauty</option>
+      </select>
+    </div>
+    <br />
+    <div class="form-group">
+      <label for="download">Downloads: </label>
+      <input
+        [class.is-invalid]="
+          updateForm.get('downloadCount')?.invalid &&
+          updateForm.get('downloadCount')?.touched
+        "
+        readonly
+        class="form-control-plaintext"
+        id="download"
+        formControlName="downloadCount"
+        type="text"
+        class="form-control"
+      />
+    </div>
+    <br />
+    <div class="form-check form-switch">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        role="switch"
+        id="flexSwitchCheckChecked"
+        [checked]="updateForm.get('visibility')?.value || false"
+        (change)="toggleVisibility($event)"
+        aria-label="Visibility"
+      />
+
+      <label class="form-check-label" for="flexSwitchCheckChecked"
+        >Visibility</label
+      >
+    </div>
+    <br />
+    <div class="d-flex justify-content-between">
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="!updateForm.valid"
+      >
+        Edit Application
+      </button>
+      <button type="button" class="btn btn-secondary" (click)="goBack()">
+        Back
+      </button>
+    </div>
+    <br />
+    <div>
+      <h6 class="mt-4"></h6>
+      @if (show) {
+      <ngb-toast
+        class="custom-toast"
+        [autohide]="false"
+        (hidden)="show = false"
+      >
+        Application updated successfully
+      </ngb-toast>
+      }
+    </div>
+  </form>
+</div>

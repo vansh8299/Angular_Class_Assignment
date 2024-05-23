@@ -1,0 +1,27 @@
+.sidebar {
+  background-color: #000;
+  color: #fff;
+  padding-top: 20px;
+  min-height: 100vh; /* Set minimum height to 100% of viewport height */
+  width: 100%; /* Set sidebar width to 100% initially */
+
+  top: 0; /* Position sidebar at the top */
+  left: 0; /* Position sidebar at the left */
+}
+
+.sidebar-heading {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.nav-link {
+  margin-bottom: 10px;
+}
+
+.nav-link:last-child {
+  margin-bottom: 0;
+}
+
+.content-area {
+  overflow-y: auto;
+}

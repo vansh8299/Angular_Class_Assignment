@@ -1,0 +1,18 @@
+<div class="container">
+  <h2>Announcements</h2>
+
+  <app-search></app-search>
+
+  <div *ngFor="let a of announcements" class="card">
+    <div class="card-body">
+      <span>{{ a.id }}</span>
+      <span>{{ a.title }}</span>
+      <span>{{ a.content }}</span>
+      <span>{{ a.date }}</span>
+      <button type="button" (click)="delete(a)">Delete</button>
+      <button routerLink="/edit/{{ a.id }}">Edit</button>
+    </div>
+  </div>
+
+  <button class="add-button" routerLink="/add">Add</button>
+</div>
