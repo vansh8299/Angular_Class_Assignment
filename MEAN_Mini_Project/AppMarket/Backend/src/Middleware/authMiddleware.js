@@ -5,7 +5,7 @@ const Application = require("../Model/Application");
 // Middleware to authenticate users
 const authenticateUser = async (req, res, next) => {
   try {
-    const token = req.headers.authorization;
+    const token = req.headers.authorization.split(" ")[1]; // Ensure the format is correct
     if (!token) {
       return res
         .status(401)

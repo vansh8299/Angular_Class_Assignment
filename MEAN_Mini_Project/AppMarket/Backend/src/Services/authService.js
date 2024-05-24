@@ -16,7 +16,7 @@ exports.register = async (email, password, role = "user") => {
   }
 };
 
-exports.login = async (email, password, role = "user") => {
+exports.login = async (email, password, role) => {
   try {
     const user = await User.findOne({ email });
     if (!user) {

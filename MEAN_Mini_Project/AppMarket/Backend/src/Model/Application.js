@@ -8,7 +8,7 @@ const applicationSchema = new mongoose.Schema(
       ref: "User",
     },
 
-    Name: {
+    app_name: {
       type: String,
       required: true,
     },
@@ -16,7 +16,7 @@ const applicationSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    releaseDate: {
+    release_date: {
       type: Date,
       required: true,
     },
@@ -37,6 +37,9 @@ const applicationSchema = new mongoose.Schema(
     Count: {
       type: Number,
       default: 0,
+    },
+    imageurl: {
+      type: String,
     },
   },
   {
