@@ -30,6 +30,18 @@
             <span class="text-info"> {{ app.genre }}</span>
           </p>
         </div>
+        <div>
+          <button (click)="addDownload(app.id?.toString())">
+            Add Download
+          </button>
+        </div>
+        <div class="d-flex justify-content-between align-items-center">
+          <a
+            routerLink="/user/dashboard/addcomment/{{ app.id }}"
+            class="btn btn-primary"
+            >Add Comment</a
+          >
+        </div>
       </div>
     </div>
   </div>

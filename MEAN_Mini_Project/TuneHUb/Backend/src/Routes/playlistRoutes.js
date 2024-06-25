@@ -10,32 +10,36 @@ const {
 
 router.get(
   "/",
+  authenticateUser,
   authorizeUser("user"),
-  authorizePlaylist,
   playlistController.getAllPlaylist
 );
+
 router.get(
   "/:id",
+  authenticateUser,
   authorizeUser("user"),
-  authorizePlaylist,
   playlistController.getAllPlaylistById
 );
+
 router.post(
   "/",
+  authenticateUser,
   authorizeUser("user"),
-
   playlistController.createPlaylist
 );
+
 router.put(
   "/:id",
+  authenticateUser,
   authorizeUser("user"),
-  authorizePlaylist,
   playlistController.updatePlaylist
 );
+
 router.delete(
   "/:id",
+  authenticateUser,
   authorizeUser("user"),
-  authorizePlaylist,
   playlistController.deletePlaylist
 );
 

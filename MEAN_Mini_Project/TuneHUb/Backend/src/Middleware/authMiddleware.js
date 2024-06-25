@@ -6,7 +6,7 @@ const Playlist = require("../Model/Playlist");
 // Middleware to authenticate users
 const authenticateUser = async (req, res, next) => {
   try {
-    const token = req.headers.authorization;
+    const token = req.headers.authorization.split(" ")[1]; // Ensure the format is correct
     if (!token) {
       return res
         .status(401)
@@ -23,7 +23,6 @@ const authenticateUser = async (req, res, next) => {
     return res.status(401).json({ message: "Unauthorized: Invalid token" });
   }
 };
-
 const authorizeUser = (requiredRole) => async (req, res, next) => {
   try {
     const user = req.user;

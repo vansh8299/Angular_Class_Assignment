@@ -64,6 +64,6 @@ exports.createApplication = async (req, res) => {
     }
     res.json(application);
   } catch (error) {
-    res.status(500).json({ message: "Failed to create applications" });
+    res.status(500).json({ message: error.message });
   }
 };

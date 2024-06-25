@@ -1,0 +1,26 @@
+<div class="container" style="padding: 20px">
+  <form [formGroup]="commentForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="content">Comment:</label>
+      <textarea
+        id="content"
+        class="form-control"
+        formControlName="statement"
+      ></textarea>
+      <label for="rating">Rating:</label>
+      <input
+        id="rating"
+        class="form-control"
+        formControlName="rating"
+        type="number"
+      />
+    </div>
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="commentForm.invalid"
+    >
+      Add Comment
+    </button>
+  </form>
+</div>

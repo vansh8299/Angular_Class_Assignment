@@ -1,0 +1,20 @@
+<div>
+  <h1>Playlists</h1>
+  <button (click)="getAllPlaylists()">Get All Playlists</button>
+  <ul>
+    <li *ngFor="let playlist of playlists">
+      {{ playlist.Name }}
+      <button (click)="deletePlaylist(playlist._id)">Delete</button>
+      <ul>
+        <li *ngFor="let song of playlist.songs">
+          {{ song }}
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <div>
+    <h2>Create Playlist</h2>
+    <input [(ngModel)]="newPlaylist.Name" placeholder="Name" />
+    <button (click)="createPlaylist()">Create</button>
+  </div>
+</div>

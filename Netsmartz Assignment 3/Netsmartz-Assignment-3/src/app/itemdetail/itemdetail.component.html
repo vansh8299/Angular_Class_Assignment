@@ -1,0 +1,24 @@
+<div class="container mt-5">
+  <h2 class="text-center text-black">Item Detail</h2>
+
+  <div class="card mt-4" *ngIf="itemdetail" appHighlight>
+    <div class="card-body">
+      <p class="card-text text-primary">
+        <strong>ID:</strong> {{ itemdetail.id }}
+      </p>
+      <p class="card-text text-primary">
+        <strong>Name:</strong> {{ itemdetail.name }}
+      </p>
+      <p class="card-text text-primary">
+        <strong>Description:</strong> {{ itemdetail.description }}
+      </p>
+      <p class="card-text text-primary">
+        <strong>Price:</strong> {{ itemdetail.price }}
+      </p>
+
+      <button type="button" class="btn btn-secondary" (click)="getBack()">
+        Back
+      </button>
+    </div>
+  </div>
+</div>

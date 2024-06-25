@@ -1,0 +1,43 @@
+<div class="container" style="padding: 20px">
+  <div *ngIf="printerror" class="row">
+    <div class="col">
+      <ngb-alert type="danger">{{ printerror }}</ngb-alert>
+    </div>
+  </div>
+  <div *ngIf="downloadeddata" class="row row-cols-1 row-cols-md-3 g-4">
+    <div
+      class="col mb-3"
+      *ngFor="let l of downloadeddata"
+      routerLink="/app/{{ l.id }}"
+    >
+      <div class="card text-white bg-dark h-100">
+        <div class="card-header bg-transparent border-success">
+          Application Data
+        </div>
+        <div class="card-body">
+          <h5 class="card-title text-warning">Name: {{ l.app_name }}</h5>
+          <p class="card-text">
+            <strong>Genre: </strong>
+            <span class="text-info">{{ l.genre }}</span>
+          </p>
+          <p class="card-text">
+            <strong>Download Count: </strong>
+            <span class="text-info">{{ l.downloadCount }}</span>
+          </p>
+        </div>
+        <div class="d-flex justify-content-between align-items-center p-2">
+          <button
+            class="btn btn-danger rounded-pill px-3"
+            type="button"
+            (click)="delete(l)"
+          >
+            Remove from Download
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-center mt-3">
+    <button class="btn btn-primary" (click)="goback()">Back</button>
+  </div>
+</div>

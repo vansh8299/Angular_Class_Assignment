@@ -1,0 +1,28 @@
+<div class="container mt-5">
+  <h2>Song Details</h2>
+
+  <div class="card">
+    <div class="card-body">
+      <p class="card-text">
+        <strong>Song Name:</strong> {{ songdetail?.Name }}
+      </p>
+      <p class="card-text">
+        <strong>Singer Name:</strong> {{ songdetail?.singer }}
+      </p>
+      <p class="card-text">
+        <strong>Release Date:</strong> {{ songdetail?.releaseDate }}
+      </p>
+      <p class="card-text">
+        <strong>Music Director Name:</strong> {{ songdetail?.musicdirector }}
+      </p>
+      <p class="card-text">
+        <strong>Album Name:</strong> {{ songdetail?.albumName }}
+      </p>
+
+      <button type="button" class="btn btn-primary" (click)="goback()">
+        Back
+      </button>
+      <br /><br />
+    </div>
+  </div>
+</div>

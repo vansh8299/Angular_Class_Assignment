@@ -1,0 +1,105 @@
+<div class="container-fluid">
+  <h2 style="padding-bottom: 20px">Create Job Form</h2>
+
+  <form [formGroup]="jobForm">
+    <div class="form-group">
+      <label for="company_name">Company Name: </label>
+      <input
+        [class.is-invalid]="
+          jobForm.get('company_name')?.invalid &&
+          jobForm.get('company_name')?.touched
+        "
+        formControlName="company_name"
+        type="text"
+        #cname
+        id="company_name"
+        class="form-control"
+      />
+      <div
+        *ngIf="
+          jobForm.get('company_name')?.invalid &&
+          jobForm.get('company_name')?.touched
+        "
+      >
+        <small
+          class="text-danger"
+          *ngIf="jobForm.get('company_name')?.errors?.['required']"
+          >Please enter the app name</small
+        >
+        <small
+          class="text-danger"
+          *ngIf="jobForm.get('company_name')?.errors?.['minlength']"
+          >App name should be of 3 or more characters</small
+        >
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="desname">Job Title: </label>
+      <input
+        [class.is-invalid]="
+          jobForm.get('job_title')?.invalid && jobForm.get('job_title')?.touched
+        "
+        formControlName="job_title"
+        class="form-control"
+        #Jtitle
+        id="desname"
+      />
+      <div
+        *ngIf="
+          jobForm.get('job_title')?.invalid && jobForm.get('job_title')?.touched
+        "
+      >
+        <small
+          class="text-danger"
+          *ngIf="jobForm.get('job_title')?.errors?.['required']"
+          >Please enter the job title</small
+        >
+        <small
+          class="text-danger"
+          *ngIf="jobForm.get('job_title')?.errors?.['minlength']"
+          >Job title should be of 5 or more characters</small
+        >
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="openingsname">Openings</label>
+      <input
+        [class.is-invalid]="
+          jobForm.get('openings')?.invalid && jobForm.get('openings')?.touched
+        "
+        formControlName="openings"
+        type="text"
+        #opening
+        id="openingsname"
+        class="form-control"
+      />
+    </div>
+    <br />
+
+    <div class="d-flex justify-content-between">
+      <button
+        type="submit"
+        class="btn btn-primary"
+        (click)="add(cname.value, Jtitle.value, opening.value)"
+      >
+        Submit
+      </button>
+    </div>
+    <br />
+
+    <!-- <div>
+      <h6 class="mt-4"></h6>
+      <ng-container *ngIf="show">
+        <ngb-toast
+          class="custom-toast"
+          [autohide]="false"
+          (hidden)="show = false"
+        >
+          Application updated successfully
+        </ngb-toast>
+      </ng-container>
+    </div> -->
+  </form>
+</div>

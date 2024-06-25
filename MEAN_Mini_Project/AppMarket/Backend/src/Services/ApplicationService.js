@@ -41,10 +41,10 @@ exports.createApplication = async (newFields, id) => {
 };
 
 exports.updateApplication = async (id, updatedFields) => {
-  const application = Application.findById(id);
+  const application = Application.findById({ _id: id });
 
   if (application.visibility == true && updatedFields.visibility == false) {
-    await User.updateMany({ downloads: id }, { $pull: { downloads: id } });
+    await User.updateMany({ downloads: _id }, { $pull: { downloads: _id } });
   }
   return await Application.findByIdAndUpdate(id, updatedFields, { new: true });
 };

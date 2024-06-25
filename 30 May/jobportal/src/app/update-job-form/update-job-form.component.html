@@ -1,0 +1,110 @@
+<div class="container-fluid">
+  <h2 style="padding-bottom: 20px">Edit Details Form</h2>
+  <form [formGroup]="updateForm" (ngSubmit)="save()">
+    <div class="form-group">
+      <label for="company_name">Company Name:</label>
+      <input
+        id="company_name"
+        formControlName="company_name"
+        class="form-control"
+        [class.is-invalid]="
+          updateForm.get('company_name')?.invalid &&
+          updateForm.get('company_name')?.touched
+        "
+      />
+      <div
+        *ngIf="
+          updateForm.get('company_name')?.invalid &&
+          updateForm.get('company_name')?.touched
+        "
+      >
+        <small
+          class="text-danger"
+          *ngIf="updateForm.get('company_name')?.errors?.['required']"
+        >
+          Please enter the company name
+        </small>
+        <small
+          class="text-danger"
+          *ngIf="updateForm.get('company_name')?.errors?.['minlength']"
+        >
+          Company name should be of 3 or more characters
+        </small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="job_title">Job Title:</label>
+      <textarea
+        id="job_title"
+        formControlName="job_title"
+        class="form-control"
+        [class.is-invalid]="
+          updateForm.get('job_title')?.invalid &&
+          updateForm.get('job_title')?.touched
+        "
+        placeholder="Write something...."
+      ></textarea>
+      <div
+        *ngIf="
+          updateForm.get('job_title')?.invalid &&
+          updateForm.get('job_title')?.touched
+        "
+      >
+        <small
+          class="text-danger"
+          *ngIf="updateForm.get('job_title')?.errors?.['required']"
+        >
+          Please enter the job title
+        </small>
+        <small
+          class="text-danger"
+          *ngIf="updateForm.get('job_title')?.errors?.['minlength']"
+        >
+          Job title should be of 10 or more characters
+        </small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="openings">Openings:</label>
+      <input
+        id="openings"
+        formControlName="openings"
+        class="form-control"
+        [class.is-invalid]="
+          updateForm.get('openings')?.invalid &&
+          updateForm.get('openings')?.touched
+        "
+      />
+      <div
+        *ngIf="
+          updateForm.get('openings')?.invalid &&
+          updateForm.get('openings')?.touched
+        "
+      >
+        <small
+          class="text-danger"
+          *ngIf="updateForm.get('openings')?.errors?.['required']"
+        >
+          Please enter the number of openings
+        </small>
+      </div>
+    </div>
+
+    <br />
+    <div class="d-flex justify-content-between">
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="!updateForm.valid"
+      >
+        Edit Application
+      </button>
+      <button type="button" class="btn btn-secondary" (click)="goBack()">
+        Back
+      </button>
+    </div>
+    <br />
+  </form>
+</div>

@@ -1,0 +1,113 @@
+<div class="container-fluid mt-5">
+  <h2 class="pb-3">Add Item Form</h2>
+
+  <form [formGroup]="itemForm" (ngSubmit)="onSubmit()">
+    <div class="form-group mb-3">
+      <label for="id">Item ID: </label>
+      <input
+        [class.is-invalid]="
+          itemForm.get('id')?.invalid && itemForm.get('id')?.touched
+        "
+        formControlName="id"
+        type="text"
+        id="id"
+        class="form-control"
+      />
+      <div
+        *ngIf="itemForm.get('id')?.invalid && itemForm.get('id')?.touched"
+        class="invalid-feedback"
+      >
+        <small
+          class="text-danger"
+          *ngIf="itemForm.get('id')?.errors?.['required']"
+          >Please enter the Item ID</small
+        >
+      </div>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="name">Item Name: </label>
+      <input
+        [class.is-invalid]="
+          itemForm.get('name')?.invalid && itemForm.get('name')?.touched
+        "
+        formControlName="name"
+        type="text"
+        id="name"
+        class="form-control"
+      />
+      <div
+        *ngIf="itemForm.get('name')?.invalid && itemForm.get('name')?.touched"
+        class="invalid-feedback"
+      >
+        <small
+          class="text-danger"
+          *ngIf="itemForm.get('name')?.errors?.['required']"
+          >Please enter the Item name</small
+        >
+        <small
+          class="text-danger"
+          *ngIf="itemForm.get('name')?.errors?.['minlength']"
+          >Item name should be of 3 or more characters</small
+        >
+      </div>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="desname">Description: </label>
+      <textarea
+        [class.is-invalid]="
+          itemForm.get('description')?.invalid &&
+          itemForm.get('description')?.touched
+        "
+        formControlName="description"
+        class="form-control"
+        id="desname"
+        placeholder="Write something...."
+      ></textarea>
+      <div
+        *ngIf="
+          itemForm.get('description')?.invalid &&
+          itemForm.get('description')?.touched
+        "
+        class="invalid-feedback"
+      >
+        <small
+          class="text-danger"
+          *ngIf="itemForm.get('description')?.errors?.['required']"
+          >Please enter the description</small
+        >
+        <small
+          class="text-danger"
+          *ngIf="itemForm.get('description')?.errors?.['minlength']"
+          >Description should be of 10 or more characters</small
+        >
+      </div>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="pricenew">Price</label>
+      <input
+        [class.is-invalid]="
+          itemForm.get('price')?.invalid && itemForm.get('price')?.touched
+        "
+        formControlName="price"
+        type="text"
+        id="pricenew"
+        class="form-control"
+      />
+      <div
+        *ngIf="itemForm.get('price')?.invalid && itemForm.get('price')?.touched"
+        class="invalid-feedback"
+      >
+        <small
+          class="text-danger"
+          *ngIf="itemForm.get('price')?.errors?.['required']"
+          >Please enter the price</small
+        >
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

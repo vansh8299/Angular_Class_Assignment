@@ -1,0 +1,12 @@
+<h1>Select Playlist</h1>
+<mat-form-field>
+  <mat-label>Playlist</mat-label>
+  <mat-select [(ngModel)]="selectedPlaylistId">
+    <mat-option *ngFor="let playlist of playlists" [value]="playlist._id">
+      {{ playlist.Name }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<button mat-button (click)="onAddClick()" [disabled]="!selectedPlaylistId">
+  Add
+</button>

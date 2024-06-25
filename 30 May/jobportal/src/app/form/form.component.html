@@ -1,0 +1,110 @@
+<mat-stepper [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Personal Details</ng-template>
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input
+          matInput
+          placeholder="Last name, First name"
+          formControlName="Name"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Age</mat-label>
+        <input matInput formControlName="age" required />
+      </mat-form-field>
+      <!-- <mat-form-field>
+        <mat-label>Enter your email</mat-label>
+        <input
+          matInput
+          placeholder="pat@example.com"
+          formControlName="email"
+          (blur)="updateErrorMessage()"
+          required
+        />
+        <mat-error *ngIf="email.invalid">{{ errorMessage }}</mat-error>
+      </mat-form-field> -->
+      <mat-form-field>
+        <mat-label>Select</mat-label>
+        <mat-select formControlName="gender">
+          <mat-option value="Male">Male</mat-option>
+          <mat-option value="Female">Female</mat-option>
+          <mat-option value="Other">Other</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="secondFormGroup" label="Event Details">
+    <form [formGroup]="secondFormGroup">
+      <mat-form-field>
+        <mat-label>Description</mat-label>
+        <input
+          matInput
+          formControlName="description"
+          placeholder="Description...."
+          required
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Starting Date</mat-label>
+        <input matInput type="date" formControlName="Starting_Date" required />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Ending Date</mat-label>
+        <input matInput type="date" formControlName="Ending_Date" required />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Theme</mat-label>
+        <mat-select formControlName="Theme">
+          <mat-option value="primary">Primary</mat-option>
+          <mat-option value="accent">Accent</mat-option>
+          <mat-option value="warn">Warn</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <!-- <mat-form-field>
+        <mat-label>Add Skills</mat-label>
+        <input
+          matInput
+          formControlName="skills"
+          placeholder="Enter Your Skills"
+        />
+      </mat-form-field> -->
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="ThirdFormGroup" label="Feedback">
+    <form [formGroup]="ThirdFormGroup">
+      <mat-form-field>
+        <mat-label>Feedback</mat-label>
+        <textarea
+          matInput
+          formControlName="FeedBack"
+          placeholder="Feedback...."
+        ></textarea>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="open()">Submit</button>
+    </div>
+  </mat-step>
+</mat-stepper>

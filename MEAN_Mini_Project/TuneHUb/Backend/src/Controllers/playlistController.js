@@ -43,11 +43,14 @@ exports.deletePlaylist = async (req, res) => {
 
 exports.updatePlaylist = async (req, res) => {
   try {
-    const song = await playlistService.updatelaylist(req.params.id, req.body);
-    if (!song) {
-      res.status(404).json({ message: "song not found " });
+    const playlist = await playlistService.updatePlaylist(
+      req.params.id,
+      req.body
+    );
+    if (!playlist) {
+      res.status(404).json({ message: "Playlist not found" });
     }
-    res.json(song);
+    res.json(playlist);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -55,12 +58,15 @@ exports.updatePlaylist = async (req, res) => {
 
 exports.createPlaylist = async (req, res) => {
   try {
-    const song = await playlistService.createPlaylist(req.body, req.user._id);
-    if (!song) {
-      res.status(404).json({ message: "song not found " });
+    const playlist = await playlistService.createPlaylist(
+      req.body,
+      req.user._id
+    );
+    if (!playlist) {
+      res.status(404).json({ message: "Failed to create playlist" });
     }
-    res.json(song);
+    res.json(playlist);
   } catch (error) {
-    res.status(500).json({ message: "Failed to create song" });
+    res.status(500).json({ message: "Failed to create playlist" });
   }
 };

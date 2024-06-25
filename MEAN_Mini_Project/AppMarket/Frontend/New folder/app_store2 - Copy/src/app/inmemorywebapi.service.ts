@@ -149,10 +149,10 @@ export class InmemorywebapiService implements InMemoryDbService {
     ];
     return { AppDetailarr };
   }
-  genId<T extends AppInterface>(myTable: T[]): number {
-    const maxId = myTable.reduce((max, item) => {
-      return item.id && item.id > max ? item.id : max;
-    }, 0);
-    return maxId + 1;
-  }
+  // genId<T extends AppInterface>(myTable: T[]): number {
+  //   const maxId = myTable.reduce((max, item) => {
+  //     return item.id && item.id > max ? item.id : max;
+  //   }, 0);
+  //   return maxId + 1;
+  // }
 }

@@ -4,7 +4,7 @@ exports.getAllPlaylist = async () => {
   try {
     return await Playlist.find();
   } catch (error) {
-    throw new Error("Failed to fetch the application");
+    throw new Error("Failed to fetch the playlists");
   }
 };
 
@@ -26,7 +26,7 @@ exports.createPlaylist = async (newFields, id) => {
   return await newPlaylist.save();
 };
 
-exports.updatelaylist = async (id, updatedFields) => {
+exports.updatePlaylist = async (id, updatedFields) => {
   return await Playlist.findByIdAndUpdate(id, updatedFields, { new: true });
 };
 

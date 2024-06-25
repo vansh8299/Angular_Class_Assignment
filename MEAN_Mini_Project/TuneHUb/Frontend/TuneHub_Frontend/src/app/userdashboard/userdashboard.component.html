@@ -1,0 +1,33 @@
+<mat-drawer-container class="example-container">
+  <mat-drawer #drawer mode="side" opened class="custom-drawer">
+    <h3 style="margin: 10px">User Dashboard</h3>
+    <mat-nav-list class="centered-nav-list">
+      <a
+        style="margin: 7px"
+        mat-list-item
+        routerLink="/user/dashboard/allusersongs"
+        >All Songs</a
+      >
+      <a
+        style="margin: 7px"
+        mat-list-item
+        routerLink="/user/dashboard/allplaylist"
+        >Playlists</a
+      >
+    </mat-nav-list>
+  </mat-drawer>
+  <mat-drawer-content>
+    <mat-toolbar color="primary" class="custom-toolbar">
+      <button mat-icon-button (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>User Dashboard</span>
+      <div class="container">
+        <button class="login-btn" (click)="logout()">Logout</button>
+      </div>
+    </mat-toolbar>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>

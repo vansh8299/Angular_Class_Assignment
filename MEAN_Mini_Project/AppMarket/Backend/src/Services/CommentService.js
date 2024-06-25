@@ -8,10 +8,15 @@ exports.getComment = async (id) => {
   }
 };
 exports.createComment = async (id, newFields, userId) => {
-  newFields.user = userId;
-  newFields.application = id;
-  const newComment = new Comment(newFields);
-  return await newComment.save();
+  try {
+    newFields.user = userId;
+    newFields.application = id;
+    const newComment = new Comment(newFields);
+    return await newComment.save();
+  } catch (error) {
+    console.error("Error saving comment:", error);
+    throw error;
+  }
 };
 
 exports.deleteComment = async (commentId) => {

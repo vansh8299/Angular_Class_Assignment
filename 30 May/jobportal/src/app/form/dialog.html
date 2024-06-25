@@ -1,0 +1,21 @@
+<h2 mat-dialog-title>Submitted Data</h2>
+<mat-dialog-content class="mat-typography">
+  <p><strong>Name:</strong> {{ data?.Name }}</p>
+  <p><strong>Age:</strong> {{ data?.age }}</p>
+  <p><strong>Gender:</strong> {{ data?.gender }}</p>
+  <p><strong>Description:</strong> {{ data?.description }}</p>
+  <p><strong>Starting Date:</strong> {{ data?.Starting_Date }}</p>
+  <p><strong>Ending Date:</strong> {{ data?.Ending_Date }}</p>
+  <p><strong>Theme:</strong> {{ data?.Theme }}</p>
+  <p><strong>Feedback:</strong> {{ data?.FeedBack }}</p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button
+    mat-stroked-button
+    (click)="openSnackBar()"
+    aria-label="Show an example snack-bar"
+  >
+    Submit
+  </button>
+</mat-dialog-actions>
