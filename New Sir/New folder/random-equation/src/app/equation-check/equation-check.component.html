@@ -1,0 +1,9 @@
+<!-- src/app/equation-check/equation-check.component.html -->
+<div>
+  <h1>Random Value and Equation Check</h1>
+  <p>Random Value: {{ randomValue }}</p>
+  <p *ngIf="isEquationSatisfied !== null">
+    Equation Satisfied: {{ isEquationSatisfied ? "Yes" : "No" }}
+  </p>
+  <button (click)="generateAndCheckValue()">Generate New Value</button>
+</div>
