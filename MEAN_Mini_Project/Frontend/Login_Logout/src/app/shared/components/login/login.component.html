@@ -1,0 +1,51 @@
+<div *ngIf="showLoader">
+  <app-loader></app-loader>
+</div>
+<div *ngIf="!showLoader" class="navbar">
+  <h2>App Market</h2>
+</div>
+
+<div *ngIf="!showLoader" class="login-container">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <h4>Please Log in To Your Account</h4>
+    <br />
+    <mat-form-field appearance="fill" class="inputs">
+      <mat-label>Enter your username</mat-label>
+
+      <input
+        matInput
+        placeholder="pat@example.com"
+        formControlName="username"
+        required
+      />
+      <mat-error *ngIf="username?.touched && username?.errors?.['required']">
+        Username is Required
+      </mat-error>
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="fill" class="inputs">
+      <mat-label>Enter your password</mat-label>
+      <input matInput type="password" formControlName="password" required />
+      <mat-error *ngIf="password?.touched && password?.errors?.['required']">
+        Password is Required
+      </mat-error>
+      <mat-error *ngIf="password?.touched && password?.errors?.['minlength']">
+        Password must be at least 6 characters
+      </mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button type="submit" [disabled]="loginForm.invalid">
+      Login
+    </button>
+    <br />
+    <div class="side-by-side">
+      <p>Don't have a account?</p>
+      <a routerLink="/register">Sign Up</a>
+    </div>
+
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+  </form>
+</div>
+<app-footer *ngIf="!showLoader"></app-footer>

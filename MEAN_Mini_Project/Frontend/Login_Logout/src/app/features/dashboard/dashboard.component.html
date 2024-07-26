@@ -1,0 +1,33 @@
+<header class="header">
+  <h1>Dashboard</h1>
+  <button class="logout-btn" (click)="logout()">Logout</button>
+</header>
+<main class="main-content">
+  <section class="dashboard-section" *ngFor="let app of paginatedApps">
+    <mat-card class="dashboard-card" appCustomdashboard>
+      <mat-card-header>
+        <mat-card-title>{{ app.name | customdashboard }}</mat-card-title>
+      </mat-card-header>
+      <img
+        style="height: 220px"
+        mat-card-image
+        [src]="app.image"
+        [alt]="app.name"
+      />
+      <mat-card-content>
+        <p class="description">{{ app.description }}</p>
+        <button mat-raised-button class="install-button">Install</button>
+      </mat-card-content>
+    </mat-card>
+  </section>
+</main>
+<div class="pagination-controls">
+  <button mat-button (click)="previousPage()" [disabled]="!canPrevious">
+    Previous
+  </button>
+  <span style="color: rgb(20, 15, 19)">Page {{ currentPage }}</span>
+  <button mat-button (click)="nextPage()" [disabled]="!canNext">Next</button>
+</div>
+<div class="footer">
+  <app-footer></app-footer>
+</div>

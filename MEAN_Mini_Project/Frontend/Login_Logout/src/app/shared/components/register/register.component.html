@@ -1,0 +1,92 @@
+<div *ngIf="showLoader">
+  <app-loader></app-loader>
+</div>
+<div *ngIf="!showLoader" class="navbar">
+  <h2>App Market</h2>
+</div>
+
+<div *ngIf="!showLoader" class="register-container">
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <h3>Create a new account</h3>
+
+    <mat-form-field class="inputs">
+      <mat-label>Enter your Username</mat-label>
+      <input
+        matInput
+        placeholder="User@123"
+        formControlName="username"
+        required
+      />
+      <mat-error *ngIf="username?.touched && username?.errors?.['required']">
+        Username is Required
+      </mat-error>
+      <mat-error *ngIf="username?.touched && username?.errors?.['minlength']">
+        Username must be at least 5 characters
+      </mat-error>
+      <mat-error *ngIf="username?.touched && username?.errors?.['pattern']">
+        Username must contain alphabets only.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="inputs">
+      <mat-label>Enter your email</mat-label>
+      <input
+        matInput
+        placeholder="pat@example.com"
+        formControlName="email"
+        required
+      />
+      <mat-error *ngIf="email?.touched && email?.errors?.['required']">
+        Email is Required
+      </mat-error>
+      <mat-error *ngIf="email?.touched && email?.errors?.['email']">
+        Invalid Email Format
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="inputs">
+      <mat-label>Enter your password</mat-label>
+      <input matInput type="password" formControlName="password" required />
+      <mat-error *ngIf="password?.touched && password?.errors?.['required']">
+        Password is Required
+      </mat-error>
+      <mat-error *ngIf="password?.touched && password?.errors?.['minlength']">
+        Password must be at least 6 characters
+      </mat-error>
+      <mat-error *ngIf="password?.touched && password?.errors?.['pattern']">
+        Password Must be Strong
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="inputs">
+      <mat-label>Confirm your password</mat-label>
+      <input
+        matInput
+        type="password"
+        formControlName="confirmPassword"
+        required
+        appMustMatch="['password', 'confirmPassword']"
+      />
+      <mat-error
+        *ngIf="confirmPassword?.touched && confirmPassword?.errors?.['required']"
+      >
+        Confirm Password is Required
+      </mat-error>
+      <mat-error
+        *ngIf="confirmPassword?.touched && registerForm.errors?.['mustMatch']"
+      >
+        Passwords Do Not Match
+      </mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button type="submit" [disabled]="registerForm.invalid">
+      Register
+    </button>
+    <br />
+    <div class="side-by-side">
+      <p>Already have an account?</p>
+      <a routerLink="/login">Login</a>
+    </div>
+  </form>
+</div>
+<app-footer *ngIf="!showLoader"></app-footer>

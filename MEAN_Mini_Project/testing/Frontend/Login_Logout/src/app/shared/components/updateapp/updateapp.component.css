@@ -1,0 +1,95 @@
+/* Container styling */
+.container-fluid {
+  background-color: #e3f2fddc; /* Light blue background */
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 100px;
+  width: 800px;
+}
+
+/* Header styling */
+h2 {
+  color: #0d47a1; /* Dark blue text */
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Form group styling */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+/* Form label styling */
+.form-label {
+  color: #0d47a1; /* Dark blue text */
+  font-weight: bold;
+}
+
+/* Form field styling */
+.mat-form-field {
+  width: 100%;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline-thick {
+  color: #1976d2; /* Blue outline */
+}
+
+.mat-input-element {
+  background-color: #ffffff; /* White input background */
+  border-radius: 4px;
+  padding: 0.5rem;
+}
+
+.mat-input-element:focus {
+  border-color: #1976d2; /* Blue border on focus */
+}
+
+.mat-form-field-label {
+  color: #1976d2; /* Blue label color */
+}
+
+.mat-input-element.is-invalid {
+  border-color: #d32f2f; /* Red border for invalid input */
+}
+
+.text-danger {
+  color: #d32f2f; /* Red text color for errors */
+}
+
+/* Button styling */
+.btn-primary {
+  background-color: #1976d2; /* Blue button background */
+  border-color: #1976d2; /* Blue border */
+  color: #ffffff; /* White text */
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #1565c0; /* Darker blue on hover */
+}
+
+.btn-primary:disabled {
+  background-color: #90caf9; /* Lighter blue for disabled state */
+  border-color: #90caf9;
+  color: #ffffff;
+}
+
+/* Responsive design */
+@media (max-width: 576px) {
+  .container-fluid {
+    padding: 1rem;
+  }
+
+  .form-label,
+  .btn-primary {
+    font-size: 1rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+}

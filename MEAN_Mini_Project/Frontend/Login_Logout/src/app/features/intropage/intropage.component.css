@@ -1,0 +1,89 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", sans-serif;
+  background-color: #e0f7fa; /* Light cyan background for a fresh look */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  text-align: center;
+}
+
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  background-color: rgba(
+    12,
+    12,
+    12,
+    0.718
+  ); /* White background with slight opacity */
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  max-width: 800px;
+  margin: auto;
+  margin-top: 200px;
+}
+
+.welcome-container h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #e9f0ef; /* Teal color for contrast with the light background */
+  font-weight: bolder;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Adds shadow for better readability */
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1.5rem;
+  color: #ffffff; /* White text color */
+  background-color: #0267ff; /* Teal background color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin: 0 10px;
+}
+
+button:hover {
+  background-color: #004d40; /* Darker teal on hover */
+  transform: translateY(-2px); /* Slight lift on hover */
+}
+
+button:active {
+  transform: translateY(0); /* No lift on click */
+}
+
+button:focus {
+  outline: none;
+}
+
+@media (max-width: 768px) {
+  .welcome-container {
+    padding: 0 20px;
+    text-align: center;
+  }
+
+  .buttons-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  button {
+    margin: 10px 0; /* Adjust margin for vertical alignment on smaller screens */
+  }
+}

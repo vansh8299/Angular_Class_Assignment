@@ -1,0 +1,175 @@
+<div class="container-fluid p-4">
+  <h2 class="mb-4">Update a Song</h2>
+
+  <form [formGroup]="updateForm" (ngSubmit)="save()">
+    <div class="form-group mb-3">
+      <label for="appname" class="form-label">Song Name: </label>
+      <mat-form-field appearance="outline" class="w-100">
+        <input
+          [class.is-invalid]="
+            updateForm.get('Name')?.invalid && updateForm.get('Name')?.touched
+          "
+          formControlName="Name"
+          type="text"
+          id="appname"
+          class="form-control"
+          matInput
+        />
+      </mat-form-field>
+      <div
+        *ngIf="
+          updateForm.get('Name')?.invalid && updateForm.get('Name')?.touched
+        "
+      >
+        <small
+          class="text-danger"
+          *ngIf="updateForm.get('Name')?.errors?.['required']"
+          >Please enter the song name</small
+        >
+      </div>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="singer" class="form-label">Singer Name: </label>
+      <mat-form-field appearance="outline" class="w-100">
+        <input
+          [class.is-invalid]="
+            updateForm.get('singer')?.invalid &&
+            updateForm.get('singer')?.touched
+          "
+          formControlName="singer"
+          type="text"
+          id="singer"
+          class="form-control"
+          matInput
+        />
+      </mat-form-field>
+      <div
+        *ngIf="
+          updateForm.get('singer')?.invalid && updateForm.get('singer')?.touched
+        "
+      >
+        <small
+          class="text-danger"
+          *ngIf="updateForm.get('singer')?.errors?.['required']"
+          >Please enter the singer name</small
+        >
+      </div>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="musicdirector" class="form-label"
+        >Music Director Name:
+      </label>
+      <mat-form-field appearance="outline" class="w-100">
+        <input
+          [class.is-invalid]="
+            updateForm.get('musicdirector')?.invalid &&
+            updateForm.get('musicdirector')?.touched
+          "
+          formControlName="musicdirector"
+          type="text"
+          id="musicdirector"
+          class="form-control"
+          matInput
+        />
+      </mat-form-field>
+      <div
+        *ngIf="
+          updateForm.get('musicdirector')?.invalid &&
+          updateForm.get('musicdirector')?.touched
+        "
+      >
+        <small
+          class="text-danger"
+          *ngIf="updateForm.get('musicdirector')?.errors?.['required']"
+          >Please enter the music director name</small
+        >
+      </div>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="datenew" class="form-label">Release Date: </label>
+      <mat-form-field appearance="outline" class="w-100">
+        <input
+          [class.is-invalid]="
+            updateForm.get('releaseDate')?.invalid &&
+            updateForm.get('releaseDate')?.touched
+          "
+          formControlName="releaseDate"
+          type="date"
+          id="datenew"
+          class="form-control"
+          matInput
+        />
+      </mat-form-field>
+      <div
+        *ngIf="
+          updateForm.get('releaseDate')?.invalid &&
+          updateForm.get('releaseDate')?.touched
+        "
+      >
+        <small
+          class="text-danger"
+          *ngIf="updateForm.get('releaseDate')?.errors?.['required']"
+          >Please enter the release date</small
+        >
+      </div>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="albumName" class="form-label">Album Name: </label>
+      <mat-form-field appearance="outline" class="w-100">
+        <input
+          [class.is-invalid]="
+            updateForm.get('albumName')?.invalid &&
+            updateForm.get('albumName')?.touched
+          "
+          formControlName="albumName"
+          type="text"
+          id="albumName"
+          class="form-control"
+          matInput
+        />
+      </mat-form-field>
+      <div
+        *ngIf="
+          updateForm.get('albumName')?.invalid &&
+          updateForm.get('albumName')?.touched
+        "
+      >
+        <small
+          class="text-danger"
+          *ngIf="updateForm.get('albumName')?.errors?.['required']"
+          >Please enter the album name</small
+        >
+      </div>
+    </div>
+
+    <div class="form-check form-switch mb-3">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        role="switch"
+        id="flexSwitchCheckChecked"
+        [checked]="updateForm.get('visibility')?.value || false"
+        (change)="toggleVisibility($event)"
+        aria-label="Visibility"
+        formControlName="visibility"
+      />
+      <label class="form-check-label" for="flexSwitchCheckChecked"
+        >Visibility</label
+      >
+    </div>
+
+    <div class="d-flex justify-content-between">
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="!updateForm.valid"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</div>

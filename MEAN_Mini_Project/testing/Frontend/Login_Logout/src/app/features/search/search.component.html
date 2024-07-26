@@ -1,0 +1,16 @@
+<div style="height: 55px">
+  <input
+    #searchBox
+    id="search"
+    class="search-input"
+    (input)="search(searchBox.value)"
+    placeholder="Search Your App"
+  />
+  <ul class="search-results">
+    <li *ngFor="let app of apps | async" class="search-item">
+      <a class="search-link" routerLink="/detail/{{ app.id }}">{{
+        app.name
+      }}</a>
+    </li>
+  </ul>
+</div>

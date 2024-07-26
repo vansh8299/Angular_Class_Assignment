@@ -1,0 +1,31 @@
+.container {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  max-width: 600px;
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  border-radius: 8px;
+  z-index: 1000;
+}
+
+h2 {
+  color: #4caf50;
+  text-align: center;
+}
+
+mat-dialog-content {
+  text-align: center;
+}
+
+mat-dialog-actions {
+  justify-content: center;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+}
