@@ -1,0 +1,66 @@
+/* Style for the modal title */
+h2.mat-dialog-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 16px;
+  color: #1976d2; /* Change this color as needed */
+}
+
+/* Style for the dialog content */
+.mat-dialog-content {
+  padding: 20px;
+}
+
+/* Style for form fields */
+mat-form-field {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+/* Style for form labels */
+mat-label {
+  font-size: 1rem;
+  color: #424242; /* Change this color as needed */
+}
+
+/* Style for the buttons */
+button.mat-raised-button {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Additional styles for button colors */
+button.mat-raised-button.color-primary {
+  background-color: #1976d2; /* Primary color */
+  color: white;
+}
+
+button.mat-raised-button.color-primary:hover {
+  background-color: #1565c0; /* Darker shade for hover effect */
+}
+
+button.mat-raised-button.color-accent {
+  background-color: #f50057; /* Accent color */
+  color: white;
+}
+
+button.mat-raised-button.color-accent:hover {
+  background-color: #c51162; /* Darker shade for hover effect */
+}
+
+/* Style for the datepicker and timepicker */
+.mat-datepicker-toggle {
+  color: #1976d2; /* Change this color as needed */
+}
+
+mat-datepicker {
+  .mat-calendar {
+    background: #ffffff; /* Background color of the calendar */
+  }
+  .mat-calendar-header {
+    background: #f5f5f5; /* Header background color */
+  }
+}

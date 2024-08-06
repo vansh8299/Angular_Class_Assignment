@@ -1,0 +1,42 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.light-theme {
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --primary-color: #1976d2;
+}
+
+.dark-theme {
+  --background-color: #121212;
+  --text-color: #ffffff;
+  --primary-color: #bb86fc;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  background-image: var(--background-image);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+.mat-button {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

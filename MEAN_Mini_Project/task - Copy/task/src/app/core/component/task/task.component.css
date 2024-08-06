@@ -1,0 +1,104 @@
+/* Container for the task management section */
+.task-container {
+  width: 90%; /* Adjusted width for better responsiveness */
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9; /* Light background color for better contrast */
+  border-radius: 8px; /* Rounded corners for a modern look */
+}
+
+/* Header styling */
+.task-header {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 1.8rem; /* Larger font size for the header */
+  font-weight: bold;
+}
+
+/* Styling for the card containing the table */
+.task-table-card {
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Content inside the card */
+.mat-card-content {
+  padding: 20px;
+}
+
+/* Form styling */
+.task-form {
+  margin-bottom: 20px;
+}
+
+/* Button styling for the actions */
+button.mat-raised-button {
+  margin: 10px 0;
+  font-size: 1rem; /* Slightly larger font size for better readability */
+}
+
+/* Button color for primary actions */
+button.mat-raised-button.color-primary {
+  background-color: #007bff; /* Primary color */
+  color: white;
+}
+
+/* Button color for accent actions */
+button.mat-raised-button.color-accent {
+  background-color: #f50057; /* Accent color */
+  color: white;
+}
+
+/* Hover effects for buttons */
+button.mat-raised-button:hover {
+  opacity: 0.8; /* Slightly reduced opacity on hover for a subtle effect */
+}
+
+/* Table container styling */
+.table-container {
+  width: 100%;
+  overflow-x: auto; /* Ensures table is scrollable on small screens */
+}
+
+/* Table header cell styling */
+.mat-header-cell {
+  background-color: #007bff; /* Header background color */
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  padding: 12px;
+}
+
+/* Table cell styling */
+.mat-cell {
+  text-align: center;
+  padding: 12px;
+}
+
+/* Styling for icon buttons */
+.mat-icon-button {
+  margin: 0;
+  padding: 8px;
+}
+
+/* Hover effect for icon buttons */
+.mat-icon-button:hover {
+  background-color: #e0e0e0;
+}
+
+/* Styling for icons */
+.mat-icon {
+  font-size: 20px; /* Slightly larger icons for better visibility */
+}
+
+/* Snackbar styling for success messages */
+.success-snackbar {
+  background-color: #4caf50; /* Green color for success messages */
+  color: white;
+}
+.error-snackbar {
+  background-color: #f44336; /* Red background color for error messages */
+  color: white;
+}

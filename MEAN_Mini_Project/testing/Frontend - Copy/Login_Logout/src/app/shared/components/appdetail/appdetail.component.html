@@ -1,0 +1,44 @@
+<header class="header">
+  <h1>App Detail</h1>
+  <button type="button" class="Back-btn" (click)="getBack()">Back</button>
+</header>
+<main class="main-content">
+  <section class="dashboard-section">
+    <mat-card class="dashboard-card" *ngIf="apps" appCustomdashboard>
+      <mat-card-header>
+        <mat-card-title>{{ apps.name }}</mat-card-title>
+      </mat-card-header>
+      <img
+        style="height: 220px"
+        mat-card-image
+        [src]="apps.imageurl"
+        [alt]="apps.name"
+      />
+      <mat-card-content>
+        <p class="description">{{ apps.description }}</p>
+
+        <div class="button-container">
+          <button
+            mat-raised-button
+            class="install-button"
+            routerLink="/update/{{ apps.id }}"
+          >
+            Update
+          </button>
+          <button
+            style="background-color: tomato"
+            mat-raised-button
+            class="install-button"
+            (click)="delete(apps)"
+          >
+            Delete
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </section>
+</main>
+
+<div class="footer">
+  <app-footer></app-footer>
+</div>

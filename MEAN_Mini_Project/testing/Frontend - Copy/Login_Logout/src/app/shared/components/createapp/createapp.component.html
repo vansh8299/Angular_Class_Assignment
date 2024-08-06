@@ -1,0 +1,86 @@
+<div *ngIf="showLoader">
+  <app-loader></app-loader>
+</div>
+
+<div *ngIf="!showLoader" class="container-fluid p-4">
+  <h2 class="mb-4">Add a New App</h2>
+
+  <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+    <div class="form-group mb-3">
+      <label for="appname" class="form-label">App Name: </label>
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Name</mat-label>
+        <input
+          formControlName="name"
+          type="text"
+          id="appname"
+          class="form-control"
+          matInput
+          [class.is-invalid]="
+            addForm.get('name')?.invalid && addForm.get('name')?.touched
+          "
+        />
+        <mat-error
+          *ngIf="addForm.get('name')?.invalid && addForm.get('name')?.touched"
+        >
+          <small *ngIf="addForm.get('name')?.errors?.['required']"
+            >Please enter the app name</small
+          >
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="file" class="form-label">Upload Image</label>
+      <input
+        type="file"
+        id="file"
+        (change)="onFileSelected($event)"
+        class="form-control"
+      />
+    </div>
+
+    <img
+      *ngIf="imageSrc"
+      [src]="imageSrc"
+      alt="Selected Image"
+      class="selected-image"
+    />
+
+    <div class="form-group mb-3">
+      <label for="description" class="form-label">Description: </label>
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Description</mat-label>
+        <textarea
+          formControlName="description"
+          id="description"
+          class="form-control"
+          matInput
+          [class.is-invalid]="
+            addForm.get('description')?.invalid &&
+            addForm.get('description')?.touched
+          "
+        ></textarea>
+        <mat-error
+          *ngIf="
+            addForm.get('description')?.invalid &&
+            addForm.get('description')?.touched
+          "
+        >
+          <small *ngIf="addForm.get('description')?.errors?.['required']"
+            >Please enter the description</small
+          >
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="d-flex justify-content-between">
+      <button type="submit" class="btn btn-primary" [disabled]="!addForm.valid">
+        Submit
+      </button>
+      <button type="button" class="btn btn-primary" (click)="goBack()">
+        Back
+      </button>
+    </div>
+  </form>
+</div>
